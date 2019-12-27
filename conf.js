@@ -6,7 +6,7 @@ jsproxy_config({
 
   // 通过 CDN 加速常用网站的静态资源（实验中）
   static_boost: {
-    enable: true,
+    enable: false,
     ver: 62
   },
 
@@ -59,7 +59,7 @@ jsproxy_config({
   /**
    * 加速节点
    */
-  node_acc: 'cfworker',
+  node_acc: 'mysite',
 
   /**
    * 静态资源 CDN 地址
