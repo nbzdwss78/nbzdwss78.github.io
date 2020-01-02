@@ -3,7 +3,7 @@
 
 # google
 ssl.google-analytics.com
-www.pornhub.com
+www.google.com
 # [public]
 cdn.jsdelivr.net
 unpkg.com
