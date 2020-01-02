@@ -3,7 +3,7 @@
 
 # google
 ssl.google-analytics.com
-
+www.youtube.com
 # [public]
 cdn.jsdelivr.net
 unpkg.com
