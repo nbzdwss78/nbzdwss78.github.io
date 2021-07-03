@@ -1,2 +1,2 @@
 jsproxy
-m3u8-download
+m3u8-downloader
