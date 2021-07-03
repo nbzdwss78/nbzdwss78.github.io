@@ -398,9 +398,9 @@ var _hmt = _hmt || [];
 })();
 </script>
 <!--vue 前端框架-->
-<script src="vue.js"></script>
-<script src="aes-decryptor.js"></script>
-<script src="mux-mp4.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-download/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-download/aes-decryptor.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-download/mux-mp4.js"></script>
 
 <script>
 // script注入
@@ -524,11 +524,11 @@ new Vue({
         alert('资源下载中，请稍后')
         return
       } else if (
-        location.href.indexOf('https://n1.szjal.cn/20210601/AKp26dDR/index.m3u8') > -1 // 在下载页面才触发，代码注入的页面不需要校验
+        location.href.indexOf('https://gxggsrmyy.github.io/m3u8-download/index.html') > -1 // 在下载页面才触发，代码注入的页面不需要校验
         && this.url.indexOf(location.protocol) === -1  // 当前协议不一致，切换协议
       ) {
         alert('当前协议不一致，跳转至正确页面重新下载')
-        location.href = `${this.url.split(':')[0]}://127.0.0.1:8080/tool-show/m3u8-downloader/index.html?source=${this.url}`
+        location.href = `${this.url.split(':')[0]}://gxggsrmyy.github.io/m3u8-download/index.html?source=${this.url}`
         return
       }
 
@@ -824,15 +824,15 @@ new Vue({
 
           // 加载 ASE 解密
           let $ase = document.createElement('script')
-          $ase.src = 'aes-decryptor.js'
+          $ase.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-download/aes-decryptor.js'
 
           // 加载 mp4 转码
           let $mp4 = document.createElement('script')
-          $mp4.src = 'mux-mp4.js'
+          $mp4.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-download/mux-mp4.js'
 
           // 加载 vue
           let $vue = document.createElement('script')
-          $vue.src = 'vue.js'
+          $vue.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-download/vue.js'
 
           // 监听 vue 加载完成，执行业务代码
           $vue.addEventListener('load', () => {${script}})
