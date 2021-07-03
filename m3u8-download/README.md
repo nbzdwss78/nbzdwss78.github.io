@@ -1,3 +1,7 @@
+### if (fileStr.indexOf('.ts') > -1 || fileStr.indexOf('.image') > -1) {
+
+### if (item.toLowerCase().indexOf(".ts") > -1 || item.toLowerCase().indexOf(".image") > -1) {
+
 # m3u8 视频在线提取工具([English version](https://github.com/Momo707577045/m3u8-downloader/blob/master/README-EN.md))
 
 ![界面](http://upyun.luckly-mjw.cn/Assets/m3u8-download/01.jpeg)
