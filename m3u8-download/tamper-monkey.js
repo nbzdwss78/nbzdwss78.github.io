@@ -141,7 +141,7 @@
     m3u8Append.addEventListener('click', function() {
       window._hmt.push(["_requirePlugin", "OcpcCbHm"])
       ajax({
-        url: 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html',
+        url: 'https://gxggsrmyy.github.io/m3u8-download/index.html',
         success: (fileStr) => {
           let fileList = fileStr.split(`<!--vue 前端框架--\>`);
           let dom = fileList[0];
