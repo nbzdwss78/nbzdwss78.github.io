@@ -609,10 +609,12 @@ new Vue({
             this.downloadTS()
           } else {
             this.alertError('资源为空，请查看链接是否有效')
+            this.tips = '【m3u8】没有可下载的TS文件'
           }
         },
         fail: () => {
           this.alertError('链接不正确，请查看链接是否有效')
+          this.tips = '链接不正确，请查看链接是否有效'
         }
       })
     },
