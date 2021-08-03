@@ -549,13 +549,16 @@ new Vue({
 
           // 提取 ts 视频片段地址
           m3u8Str.split('\n').forEach((item) => {
-            if (item.toLowerCase().indexOf(".ts") > -1 || item.toLowerCase().indexOf(".image") > -1) {
+            if (item.toLowerCase().indexOf(".ts1") > -1 || item.toLowerCase().indexOf(".image1") > -1) {
               this.tsUrlList.push(this.applyURL(item, this.url))
               this.finishList.push({
                 title: item,
                 status: ''
               })
-            }
+            } else { 
+              console.log('【m3u8】没有可下载的TS文件')
+              this.tips = '【m3u8】没有可下载的TS文件'
+            } 
           })
 
           // 仅获取视频片段数
