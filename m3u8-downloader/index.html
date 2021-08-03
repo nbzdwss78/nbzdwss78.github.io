@@ -514,6 +514,7 @@ new Vue({
     getM3U8(onlyGetRange) {
       if (!this.url) {
         alert('请输入链接')
+        this.tips = '请输入链接'
         return
       }
       if (this.url.toLowerCase().indexOf('.m3u8') === -1) {
