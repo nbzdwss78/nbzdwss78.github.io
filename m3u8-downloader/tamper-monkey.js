@@ -161,7 +161,7 @@
           $section.innerHTML = `${dom}`
           $section.style.width = '120%'
           $section.style.height = '800px'
-          $section.style.top = '-20px'
+          $section.style.top = '-35px'
           $section.style.left = '-50px'
           $section.style.position = 'fixed'
          // $section.style.position = 'relative'
