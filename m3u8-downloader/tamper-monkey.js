@@ -48,6 +48,8 @@
           console.log('【m3u8】----------------------------------------')
           console.log(url)
           console.log('http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + url)
+        } else { 
+         console.log('【m3u8】没有可下载的TS文件')
         }
       }
     })
