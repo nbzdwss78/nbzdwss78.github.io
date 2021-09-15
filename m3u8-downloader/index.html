@@ -517,7 +517,9 @@ new Vue({
         this.tips = '请输入链接'
         return
       }
-      if (this.url.toLowerCase().indexOf('.m3u8') === -1) {
+      //if (this.url.toLowerCase().indexOf('.m3u8') === -1) {
+      if (this.url.toLowerCase().indexOf('m3u8') === -1) {
+      
         alert('链接有误，请重新输入')
         return
       }
