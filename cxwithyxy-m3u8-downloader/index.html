@@ -509,8 +509,7 @@ new Vue({
             if (this.isGetMP4 && item.toUpperCase().indexOf('#EXTINF:') > -1) { // 计算视频总时长，设置 mp4 信息时使用
               this.durationSecond += parseFloat(item.split('#EXTINF:')[1])
             }
-            //if (item.toLowerCase().indexOf('.ts') > -1) {
-            if (item.toLowerCase().indexOf(".ts") > -1 || item.toLowerCase().indexOf(".image") > -1 || item.toLowerCase().indexOf("http") > -1) {
+            if (item.toLowerCase().indexOf('.ts') > -1) {
               this.tsUrlList.push(this.applyURL(item, this.url))
               this.finishList.push({
                 title: item,
@@ -560,8 +559,6 @@ new Vue({
         {
           let tempDownloader = await fetch(this.aesConf.uri, {
             method: 'get',
-            mode: 'cors', // no-cors, cors, *same-origin
-            credentials: 'include', // include, same-origin, *omit
             responseType: 'arraybuffer'
           })
           this.aesConf.key = await tempDownloader.arrayBuffer()
