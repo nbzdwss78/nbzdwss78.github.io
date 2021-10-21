@@ -596,7 +596,7 @@ new Vue({
               this.tsUrlList[index],
               {
               method: 'get',
-              credentials: 'include', // include, same-origin, *omit
+              credentials: 'same-origin', // include, same-origin, *omit
               mode: 'cors', // no-cors, cors, *same-origin
               responseType: 'arraybuffer'
               }
