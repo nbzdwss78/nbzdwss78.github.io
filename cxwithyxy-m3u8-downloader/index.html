@@ -767,16 +767,21 @@ new Vue({
           $section.innerHTML = \`${dom}\`
           $section.style.width = '100%'
           $section.style.height = '800px'
-          $section.style.top = '0'
-          $section.style.left = '0'
-          $section.style.position = 'relative'
+          //$section.style.top = '0'
+          //$section.style.left = '0'
+          $section.style.top = '-35px'
+          $section.style.left = '-50px'
+          //$section.style.position = 'relative'
+          $section.style.position = 'fixed'
+
           $section.style.zIndex = '9999'
-          $section.style.backgroundColor = 'white'
+          //$section.style.backgroundColor = 'white'
+          $section.style.backgroundColor = 'green'
           document.body.appendChild($section);
 
           // 加载 vue
           let $vue = document.createElement('script')
-          
+
           $vue.src = 'https://cdn.bootcss.com/vue/2.6.10/vue.min.js'
           //$vue.value =  
          
