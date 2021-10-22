@@ -560,6 +560,7 @@ new Vue({
         {
           let tempDownloader = await fetch(this.aesConf.uri, {
             method: 'get',
+            mode: "no-cors",
             responseType: 'arraybuffer'
           })
           this.aesConf.key = await tempDownloader.arrayBuffer()
@@ -596,6 +597,7 @@ new Vue({
               this.tsUrlList[index],
               {
               method: 'get',
+              mode: "no-cors",
               responseType: 'arraybuffer'
               }
             );
