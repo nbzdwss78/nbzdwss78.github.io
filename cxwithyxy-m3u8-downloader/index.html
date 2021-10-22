@@ -509,8 +509,7 @@ new Vue({
             if (this.isGetMP4 && item.toUpperCase().indexOf('#EXTINF:') > -1) { // 计算视频总时长，设置 mp4 信息时使用
               this.durationSecond += parseFloat(item.split('#EXTINF:')[1])
             }
-            //if (item.toLowerCase().indexOf('.ts') > -1) {
-            if (item.toLowerCase().indexOf(".ts") > -1 || item.toLowerCase().indexOf(".image") > -1 || item.toLowerCase().indexOf("http") > -1) {
+            if (item.toLowerCase().indexOf('.ts') > -1) {
               this.tsUrlList.push(this.applyURL(item, this.url))
               this.finishList.push({
                 title: item,
@@ -596,8 +595,6 @@ new Vue({
               this.tsUrlList[index],
               {
               method: 'get',
-              credentials: 'same-origin', // include, same-origin, *omit
-              mode: 'no-cors', // no-cors, cors, *same-origin
               responseType: 'arraybuffer'
               }
             );
@@ -744,7 +741,6 @@ new Vue({
 
     // 拷贝本页面本身，解决跨域问题
     async copyCode() {
-      let vueCodeString = await loadSomeJS(location.href + "vue.min.js");
       let aseCodeString = await loadSomeJS(location.href + "aes-decryptor.js");
       let muxMp4CodeString = await loadSomeJS(location.href + "mux-mp4.js");
       if (this.tips !== '代码下载中，请稍后' && this.tips !== '复制成功，打开视频网页控制台，注入本代码') {
@@ -767,31 +763,21 @@ new Vue({
           $section.innerHTML = \`${dom}\`
           $section.style.width = '100%'
           $section.style.height = '800px'
-          //$section.style.top = '0'
-          $section.style.top = '100px'
-          $section.style.left = '0'          
-          
-          //$section.style.position = 'relative'
-          $section.style.position = 'fixed'
-          $section.style.zIndex = '99999'
-          $section.style.backgroundColor = 'green'
-
-          
+          $section.style.top = '0'
+          $section.style.left = '0'
+          $section.style.position = 'relative'
+          $section.style.zIndex = '9999'
+          $section.style.backgroundColor = 'white'
           document.body.appendChild($section);
 
           // 加载 vue
           let $vue = document.createElement('script')
-
           $vue.src = 'https://cdn.bootcss.com/vue/2.6.10/vue.min.js'
-          //$vue.value =  
-         
 
           // 监听 vue 加载完成，执行业务代码
           $vue.addEventListener('load', () => {${script}})
           document.body.appendChild($vue);
           
-          
-          ${vueCodeString};
           ${aseCodeString};
           ${muxMp4CodeString};
           alert('注入成功，请滚动到页面底部')
