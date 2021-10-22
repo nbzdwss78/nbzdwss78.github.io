@@ -676,7 +676,7 @@ new Vue({
       }
 
       // 建立多少个 ajax 线程
-      for (let i = 0; i < Math.min(10, this.rangeDownload.targetSegment - this.finishNum); i++) {
+      for (let i = 0; i < Math.min(1, this.rangeDownload.targetSegment - this.finishNum); i++) {
         download(i)
       }
     },
