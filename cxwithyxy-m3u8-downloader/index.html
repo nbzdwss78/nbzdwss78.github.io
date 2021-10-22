@@ -748,6 +748,7 @@ new Vue({
         this.tips = '代码下载中，请稍后';
         this.ajax({
           url: './index.html',
+          
           success: (fileStr) => {
             let fileList = fileStr.split(`<!--vue 前端框架--\>`);
             let dom = fileList[0];
