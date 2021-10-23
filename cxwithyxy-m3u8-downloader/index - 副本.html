@@ -416,7 +416,7 @@ new Vue({
     // 获取链接中携带的资源链接
     getSource() {
       let { href } = location
-      if (href.indexOf('?source=') > -1) {
+      if (href.indexOf('?source=')) {
         this.url = href.split('?source=')[1]
       }
     },
