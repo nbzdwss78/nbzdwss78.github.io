@@ -780,8 +780,9 @@ new Vue({
           $vue.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/vue.js'
 
 
-          // 监听 vue 加载完成，执行业务代码          
-          $vue.addEventListener('load', () => {console.log('ok');})
+          // 监听 vue 加载完成，执行业务代码   
+          $vue.addEventListener('load', () => {${script}})       
+          
 
           document.body.appendChild($vue);
           document.body.appendChild($mp4);
