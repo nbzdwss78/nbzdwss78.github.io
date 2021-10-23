@@ -152,7 +152,8 @@
         s.parentNode.insertBefore(hm, s);
       })();
       ajax({
-        url: 'https://gxggsrmyy.github.io/m3u8-downloader/index.html',
+        //url: 'https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/index.html',
+        url: 'https://gxggsrmyy.github.io/m3u8-downloader-1/index.html',
         success: (fileStr) => {
           let fileList = fileStr.split(`<!--vue 前端框架--\>`);
           let dom = fileList[0];
