@@ -750,7 +750,8 @@ new Vue({
             let script = fileList[1] + fileList[2];
             script = script.split('// script注入');
             script = script[1] + script[2];
-            console.log(${this.url})
+            AA = ${this.url}
+            console.log(AA)
             if (this.url) {
               console.log(this.url)
               script = script.replace(`url: '', // 在线链接`, `url: '${this.url}',`);
