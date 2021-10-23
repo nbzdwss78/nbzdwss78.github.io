@@ -750,6 +750,7 @@ new Vue({
             let script = fileList[1] + fileList[2];
             script = script.split('// script注入');
             script = script[1] + script[2];
+            console.log(this.url)
             if (this.url) {
               script = script.replace(`url: '', // 在线链接`, `url: '${this.url}',`);
             }
@@ -785,7 +786,7 @@ new Vue({
           document.body.appendChild($vue);
           document.body.appendChild($mp4);
           document.body.appendChild($ase);
-          
+
           alert('注入成功，请滚动到页面底部')
           `;
             this.copyToClipboard(codeStr);
