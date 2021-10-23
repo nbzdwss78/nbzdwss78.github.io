@@ -736,8 +736,7 @@ new Vue({
 
     // 拷贝本页面本身，解决跨域问题
     async copyCode() {
-      //let aseCodeString = await loadSomeJS(location.href + "aes-decryptor.js");
-      //let muxMp4CodeString = await loadSomeJS(location.href + "mux-mp4.js");
+      
       if (this.tips !== '代码下载中，请稍后' && this.tips !== '复制成功，打开视频网页控制台，注入本代码') {
         this.tips = '代码下载中，请稍后';
         this.ajax({
@@ -779,7 +778,7 @@ new Vue({
           // 加载 vue
           let $vue = document.createElement('script')
           $vue.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/vue.js'
-          
+
 
           // 监听 vue 加载完成，执行业务代码
           $vue.addEventListener('load', () => {${script}})
