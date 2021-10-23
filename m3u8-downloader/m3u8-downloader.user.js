@@ -167,10 +167,10 @@
           // 注入html
           let $section = document.createElement('section')
           $section.innerHTML = `${dom}`
-          $section.style.width = '120%'
+          $section.style.width = '100%'
           $section.style.height = '800px'
           $section.style.top = '-35px'
-          $section.style.left = '-50px'
+          $section.style.left = '0'
           $section.style.position = 'fixed'
          // $section.style.position = 'relative'
           $section.style.zIndex = '9999'
