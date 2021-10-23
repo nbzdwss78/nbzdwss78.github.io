@@ -741,7 +741,6 @@ new Vue({
 
     // 拷贝本页面本身，解决跨域问题
     async copyCode() {
-
       let vueCodeString = await loadSomeJS("https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/vue.js");
       let aseCodeString = await loadSomeJS("https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/aes-decryptor.js");
       let muxMp4CodeString = await loadSomeJS("https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/mux-mp4.js");
