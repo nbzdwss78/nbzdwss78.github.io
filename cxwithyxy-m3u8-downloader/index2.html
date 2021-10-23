@@ -608,7 +608,7 @@ new Vue({
       }
 
       // 建立多少个 ajax 线程
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 1; i++) {
         download(i)
       }
     },
@@ -765,7 +765,7 @@ new Vue({
           $section.style.backgroundColor = 'green'
 
           document.body.appendChild($section);
-          
+
 
           // 加载 vue
           let $vue = document.createElement('script')
