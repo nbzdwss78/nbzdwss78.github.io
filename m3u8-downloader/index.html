@@ -820,7 +820,9 @@ new Vue({
             script = script[1] + script[2];
 
             if (this.url) {
+              console.log(this.url)
               script = script.replace(`url: '', // 在线链接`, `url: '${this.url}',`);
+              console.log(script);
             }
 
             let codeStr = `
