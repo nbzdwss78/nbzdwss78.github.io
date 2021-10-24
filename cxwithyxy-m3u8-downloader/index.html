@@ -751,7 +751,7 @@ new Vue({
       if (this.tips !== '代码下载中，请稍后' && this.tips !== '复制成功，打开视频网页控制台，注入本代码') {
         this.tips = '代码下载中，请稍后';
         this.ajax({
-          url: './index.html',
+          url: 'https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/index.html',
           success: (fileStr) => {
             let fileList = fileStr.split(`<!--vue 前端框架--\>`);
             let dom = fileList[0];
