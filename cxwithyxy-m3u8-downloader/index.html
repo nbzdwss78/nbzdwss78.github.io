@@ -360,19 +360,12 @@
 </section>
 </body>
 
-<script>
-var _hmt = _hmt || [];
-(function () {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?1f12b0865d866ae1b93514870d93ce89";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
+
 <!--vue 前端框架-->
-<script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
-<script src="aes-decryptor.js"></script>
-<script src="mux-mp4.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/aes-decryptor.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/mux-mp4.js"></script>
 
 <script>
 // script注入
@@ -426,7 +419,7 @@ new Vue({
     // 获取链接中携带的资源链接
     getSource() {
       let { href } = location
-      if (href.indexOf('?source=')) {
+      if (href.indexOf('?source=') > -1) {
         this.url = href.split('?source=')[1]
       }
     },
@@ -509,7 +502,6 @@ new Vue({
             if (this.isGetMP4 && item.toUpperCase().indexOf('#EXTINF:') > -1) { // 计算视频总时长，设置 mp4 信息时使用
               this.durationSecond += parseFloat(item.split('#EXTINF:')[1])
             }
-            //if (item.toLowerCase().indexOf('.ts') > -1) {
             if (item.toLowerCase().indexOf(".ts") > -1 || item.toLowerCase().indexOf(".image") > -1 || item.toLowerCase().indexOf("http") > -1) {
               this.tsUrlList.push(this.applyURL(item, this.url))
               this.finishList.push({
@@ -598,8 +590,8 @@ new Vue({
               this.tsUrlList[index],
               {
               method: 'get',
-              mode: "no-cors",
-              credentials: 'same-origin',
+              mode: "cors",
+            credentials: 'same-origin',
               responseType: 'arraybuffer'
               }
             );
@@ -746,8 +738,9 @@ new Vue({
 
     // 拷贝本页面本身，解决跨域问题
     async copyCode() {
-      let aseCodeString = await loadSomeJS(location.href + "aes-decryptor.js");
-      let muxMp4CodeString = await loadSomeJS(location.href + "mux-mp4.js");
+      
+      let aseCodeString = await loadSomeJS("https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/aes-decryptor.js");
+      let muxMp4CodeString = await loadSomeJS("https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/mux-mp4.js");
       if (this.tips !== '代码下载中，请稍后' && this.tips !== '复制成功，打开视频网页控制台，注入本代码') {
         this.tips = '代码下载中，请稍后';
         this.ajax({
@@ -774,11 +767,13 @@ new Vue({
           //$section.style.zIndex = '9999'
           $section.style.zIndex = '99999'
           $section.style.backgroundColor = 'green'
+
           document.body.appendChild($section);
+
 
           // 加载 vue
           let $vue = document.createElement('script')
-          $vue.src = 'https://cdn.bootcss.com/vue/2.6.10/vue.min.js'
+          $vue.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/vue.js'
 
           // 监听 vue 加载完成，执行业务代码
           $vue.addEventListener('load', () => {${script}})
