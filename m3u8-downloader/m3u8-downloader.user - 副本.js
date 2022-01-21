@@ -42,13 +42,13 @@
     ajax({
       url,
       success: (fileStr) => {
-        if (fileStr.indexOf('.ts') > -1 || fileStr.indexOf('.image') > -1 || fileStr.indexOf('http') > -1 || fileStr.indexOf('.mp3') > -1) {
+        if (fileStr.indexOf('.ts') > -1 || fileStr.indexOf('.image') > -1 || fileStr.indexOf('http') > -1) {
           appendDom()
           m3u8Target = url
           console.log('【m3u8】----------------------------------------')
           console.log(url)
           console.log('http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + url)
-        } else {
+        } else { 
          console.log('tamper-monkey【m3u8】没有可下载的TS文件')
         }
       }
@@ -65,7 +65,15 @@
     window.XMLHttpRequest = function() {
       var realXHR = new originXHR()
       realXHR.open = function(method, url) {
-        url.indexOf('.m3u8') > 0 && checkM3u8Url(url)
+        //url.indexOf('.m3u8') > 0 && checkM3u8Url(url)
+        url.indexOf('m3u8') > 0 && checkM3u8Url(url)
+        if (url.indexOf('.mp4') > 0) {
+          appendDom()
+          m3u8Target = url
+          console.log('【mp4】----------------------------------------')
+          console.log(url)
+          console.log('http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + url)
+        }
         originOpen.call(realXHR, method, url)
       }
       return realXHR
@@ -133,7 +141,6 @@
 
     m3u8Jump.addEventListener('click', function() {
       window.open('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + m3u8Target)
-      //window.open('https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target)
     })
 
     m3u8Append.addEventListener('click', function() {
@@ -145,8 +152,8 @@
         s.parentNode.insertBefore(hm, s);
       })();
       ajax({
-        url: 'https://gxggsrmyy.github.io/m3u8-downloader/',
-        //url: 'https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/',
+        //url: 'https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/index.html',
+        url: 'https://gxggsrmyy.github.io/m3u8-downloader-1/index.html',
         success: (fileStr) => {
           let fileList = fileStr.split(`<!--vue 前端框架--\>`);
           let dom = fileList[0];
@@ -163,11 +170,11 @@
           $section.innerHTML = `${dom}`
           $section.style.width = '100%'
           $section.style.height = '800px'
-          $section.style.top = '-50px'
-          $section.style.left = '0px'
+          $section.style.top = '-35px'
+          $section.style.left = '0'
           $section.style.position = 'fixed'
          // $section.style.position = 'relative'
-          $section.style.zIndex = '99999'
+          $section.style.zIndex = '9999'
           $section.style.backgroundColor = 'green'
           document.body.appendChild($section);
 
