@@ -557,6 +557,7 @@ new Vue({
             responseType: 'arraybuffer'
           })
           this.aesConf.key = await tempDownloader.arrayBuffer()
+          console.log('getAES', this.aesConf.key)
         }
         this.aesConf.decryptor = new AESDecryptor()
         this.aesConf.decryptor.constructor()
@@ -591,8 +592,8 @@ new Vue({
               {
               method: 'get',
               responseType: 'arraybuffer',
-              mode: "cors", 
-              //mode: "no-cors",
+              //mode: "cors", 
+              mode: "no-cors",
               credentials: 'same-origin'             
               }
             );
