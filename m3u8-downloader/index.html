@@ -634,8 +634,9 @@ new Vue({
         success: (key) => {
            console.log('getAES', key)
            //this.aesConf.key = this.aesConf.stringToBuffer(key)
-           console.log('getAES', key)
+           
           this.aesConf.key = key
+          console.log('getAES', this.aesConf.key)
           this.aesConf.decryptor = new AESDecryptor()
           this.aesConf.decryptor.constructor()
           this.aesConf.decryptor.expandKey(this.aesConf.key);
