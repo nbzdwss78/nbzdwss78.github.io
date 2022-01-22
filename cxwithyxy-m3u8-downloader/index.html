@@ -590,7 +590,8 @@ new Vue({
               this.tsUrlList[index],
               {
               method: 'get',
-              mode: "cors",
+              //mode: "cors", 
+              mode: "no-cors",
             credentials: 'same-origin',
               responseType: 'arraybuffer'
               }
