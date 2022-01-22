@@ -591,9 +591,9 @@ new Vue({
               {
               method: 'get',
               responseType: 'arraybuffer',
-              //mode: "cors", 
+              mode: "cors", 
               //mode: "no-cors",
-              //credentials: 'same-origin'             
+              credentials: 'same-origin'             
               }
             );
             let file = await tempDownloader.arrayBuffer();
