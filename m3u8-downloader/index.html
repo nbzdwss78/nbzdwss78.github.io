@@ -551,6 +551,7 @@ new Vue({
 
           // 提取 ts 视频片段地址
           m3u8Str.split('\n').forEach((item) => {
+            
             if (item.toLowerCase().indexOf(".ts") > -1 || item.toLowerCase().indexOf(".image") > -1 || item.startsWith('http')) {
               this.tsUrlList.push(this.applyURL(item, this.url))
               this.finishList.push({
@@ -558,7 +559,7 @@ new Vue({
                 status: ''
               })
             } else { 
-              console.log('index【m3u8】没有可下载的TS文件')
+              //console.log('index【m3u8】没有可下载的TS文件')
               this.tips = 'index【m3u8】没有可下载的TS文件'
             } 
           })
@@ -624,12 +625,16 @@ new Vue({
     // 获取AES配置
     getAES() {
       alert('视频被 AES 加密，点击确认，进行视频解码')
+      let aseConfURL = this.aesConf.uri;
+      this.aesConf.uri = prompt("请确认AES key的下载链接，看情况修改！或输入真实解码key的Uint8Array的数组(数字加英文逗号)", aseConfURL);
+      
       this.ajax({
         type: 'file',
         url: this.aesConf.uri,
         success: (key) => {
-          // console.log('getAES', key)
-          // this.aesConf.key = this.aesConf.stringToBuffer(key)
+           console.log('getAES', key)
+           //this.aesConf.key = this.aesConf.stringToBuffer(key)
+           console.log('getAES', key)
           this.aesConf.key = key
           this.aesConf.decryptor = new AESDecryptor()
           this.aesConf.decryptor.constructor()
