@@ -132,21 +132,17 @@
     })
 
     m3u8Jump.addEventListener('click', function() {
+      //window.open('https://localhost/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target)
       window.open('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + m3u8Target)
       //window.open('https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target)
     })
 
     m3u8Append.addEventListener('click', function() {
-      var _hmt = _hmt || [];
-      (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?1f12b0865d866ae1b93514870d93ce89";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
+      
       ajax({
-        url: 'https://gxggsrmyy.github.io/m3u8-downloader/',
-        //url: 'https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/',
+        // url: 'https://localhost/cxwithyxy-m3u8-downloader/',
+        //url: 'https://gxggsrmyy.github.io/m3u8-downloader/',
+        url: 'https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/',
         success: (fileStr) => {
           let fileList = fileStr.split(`<!--vue 前端框架--\>`);
           let dom = fileList[0];
