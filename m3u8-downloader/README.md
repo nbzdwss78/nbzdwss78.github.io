@@ -1,3 +1,4 @@
+### 油猴
 ### if (fileStr.indexOf('.ts') > -1 || fileStr.indexOf('.image') > -1 || fileStr.indexOf('http') > -1) {
 
 ### if (item.toLowerCase().indexOf(".ts") > -1 || item.toLowerCase().indexOf(".image") > -1 || item.startsWith('http')) {

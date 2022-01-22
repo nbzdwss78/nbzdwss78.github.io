@@ -65,7 +65,7 @@
     window.XMLHttpRequest = function() {
       var realXHR = new originXHR()
       realXHR.open = function(method, url) {
-        url.indexOf('.m3u8') > 0 && checkM3u8Url(url)
+        (url.indexOf('.m3u8') > 0 && checkM3u8Url(url)) || url.indexOf('.mp4') > 0
         originOpen.call(realXHR, method, url)
       }
       return realXHR
