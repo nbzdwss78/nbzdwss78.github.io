@@ -553,11 +553,12 @@ new Vue({
           let tempDownloader = await fetch(this.aesConf.uri, {
             method: 'get',
             mode: "cors",
+            //mode: "no-cors",不能下载文件
             credentials: 'same-origin',
             responseType: 'arraybuffer'
           })
           this.aesConf.key = await tempDownloader.arrayBuffer()
-          console.log('getAES', this.aesConf.key)
+          //console.log('getAES', this.aesConf.key)
         }
         this.aesConf.decryptor = new AESDecryptor()
         this.aesConf.decryptor.constructor()
@@ -593,7 +594,7 @@ new Vue({
               method: 'get',
               responseType: 'arraybuffer',
               mode: "cors", 
-              //mode: "no-cors",
+              //mode: "no-cors",不能下载文件
               credentials: 'same-origin'             
               }
             );
@@ -740,7 +741,7 @@ new Vue({
 
     // 拷贝本页面本身，解决跨域问题
     async copyCode() {
-      
+      //相对路径会出错，取不到m3u8地址
       let aseCodeString = await loadSomeJS("https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/aes-decryptor.js");
       let muxMp4CodeString = await loadSomeJS("https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/mux-mp4.js");
       if (this.tips !== '代码下载中，请稍后' && this.tips !== '复制成功，打开视频网页控制台，注入本代码') {
