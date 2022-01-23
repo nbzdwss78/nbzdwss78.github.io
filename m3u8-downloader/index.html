@@ -562,6 +562,9 @@ new Vue({
               console.log('index【m3u8】没有可下载的TS文件')
               this.tips = 'index【m3u8】没有可下载的TS文件'
             } 
+            if (item.toLowerCase().indexOf(".image") > -1 && item.startsWith('http')) {
+              console.log('视频文件是image,可能要下载mp4格式才能执行播放')
+            }
           })
 
           // 仅获取视频片段数
