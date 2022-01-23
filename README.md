@@ -6,6 +6,9 @@
 
   ### [media-source-extract]，[油猴插件](https://gxggsrmyy.github.io/media-source-extract.user.js)
 
+  
+
+  ```
   tun:
   enable: true
   stack: system # gvisor # or system
@@ -14,3 +17,4 @@
   auto-route: true # auto set global route for Windows
   # It is recommended to use `interface-name`
   auto-detect-interface: true # auto detect interface, conflict with `interface-name`
+```
