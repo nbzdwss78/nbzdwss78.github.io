@@ -8,7 +8,7 @@
 
   
 
-  ```
+```
   tun:
   enable: true
   stack: system # gvisor # or system
