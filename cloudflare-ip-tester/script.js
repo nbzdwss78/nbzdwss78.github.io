@@ -164,6 +164,8 @@ $("#test-respond").click(function () {
             var one = row.getData()
             setTimeout(function () {
                 addr = "//" + one.ip.replace(/\./g, "-") + urlprefix + pingUrl + "?" + Math.random()
+                
+                console.log(addr)
                 // break cache (set the header of request or origin is not enough in Firefox)
                 tcping(addr, tcpingCallback, one.id)
             }, pingInterval * (i + sn / 100))
