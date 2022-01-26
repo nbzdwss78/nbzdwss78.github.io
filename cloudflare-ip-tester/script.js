@@ -1,4 +1,5 @@
-var urlprefix = ".ip.flares.cloud"
+//var urlprefix = ".ip.flares.cloud"
+var urlprefix = ".gxggsrmyy.github.io/cloudflare-ip-tester"
 var imgUrls = ["/img/s.webp", "/img/m.webp", "/img/l.webp"]
 var imgBytes = [117902, 1263924, 10914532]
 var imgi = 1
