@@ -17,8 +17,19 @@ import time
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 import xml.etree.ElementTree as ET
+import os
 
-player = "mpv.exe" if sys.platform == 'win32' else "ffplay -fs"  # or "mpv -fs"
+def get_base_path(path="."):
+    if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
+        base_path = sys._MEIPASS
+    else:
+        base_path = os.getcwd()
+    return os.path.join(base_path, path)
+
+mpv_path="mpv.exe"
+path=get_base_path(mpv_path)
+print(path)
+player = path if sys.platform == 'win32' else "ffplay -fs"  # or "mpv -fs"
 #player = '"C:\\Program Files\\PotPlayer64\\PotPlayermini64.exe"' if sys.platform == 'win32' else "ffplay -fs"  # or "mpv -fs"
 
 uuid = "27d6877e-{}-ea12-abdf-cf8d50e36d54".format(randint(1000, 9999))
@@ -1230,7 +1241,8 @@ class ListenWorker(threading.Thread):
                           socket.IPPROTO_UDP)
         # 允许端口复用
         s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        s.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_LOOP, 0)
+        #socket.IP_MULTICAST_LOOP 设置为1 ，才能被客房端发现
+        s.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_LOOP, 1)
         # 绑定监听多播数据包的端口
         s.bind(('0.0.0.0', 1900))
         # 声明该socket为多播类型
@@ -1270,8 +1282,8 @@ class SearchWorker(threading.Thread):
         self.ondata = ondata
         self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.udp_socket.setblocking(False)
-        self.udp_socket.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_LOOP,
-                                   0)
+        #socket.IP_MULTICAST_LOOP 设置为1 ，才能被客房端发现
+        self.udp_socket.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_LOOP,1)
 
     def run(self):
         while True:
@@ -1633,7 +1645,7 @@ class Handler(BaseHTTPRequestHandler):
 if __name__ == '__main__':
     try:
         localIp = getLocalIp()
-        host = (localIp, 8886)
+        host = (localIp, 8888)
         xmlreplayer = XmlReplay(localIp, host[1],
                                 "dlna({}:{})".format(localIp, host[1]))
         dlna = Dlna()
