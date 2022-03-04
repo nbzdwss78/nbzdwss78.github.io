@@ -1380,6 +1380,19 @@ class Handler(BaseHTTPRequestHandler):
             if path.startswith('/dlna/ConnectionManager.xml'):
                 return self.ConnectionManager_scpd()
 
+            if path.startswith('/static/vue.min.js'):
+                return self.vue()
+
+            if path.startswith('/static/vuetify.min.js'):
+                return self.vuetify()
+
+            if path.startswith('/static/Roboto.css'):
+                return self.Roboto()
+            if path.startswith('/static/materialdesignicons.min.css'):
+                return self.materialdesignicons()
+            if path.startswith('/static/vuetify.min.css'):
+                return self.vuetifycss()            
+
             return self.index()
         except Exception as e:
             traceback.print_exc()
@@ -1544,6 +1557,46 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         with open("index.html", "rb") as f:
             self.wfile.write(f.read())
+
+    def vue(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'application/x-javascript')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
+        with open("static/vue.min.js", "rb") as f:
+            self.wfile.write(f.read())
+
+    def vuetify(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'application/x-javascript')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
+        with open("static/vuetify.min.js", "rb") as f:
+            self.wfile.write(f.read())    
+
+    def vuetifycss(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'text/css')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
+        with open("static/vuetify.min.css", "rb") as f:
+            self.wfile.write(f.read())  
+
+    def Roboto(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'text/css')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
+        with open("static/Roboto.css", "rb") as f:
+            self.wfile.write(f.read())  
+
+    def materialdesignicons(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'text/css')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
+        with open("static/materialdesignicons.min.css", "rb") as f:
+            self.wfile.write(f.read())                              
 
     def notfound(self):
         self.send_response(404)
