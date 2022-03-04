@@ -1241,7 +1241,7 @@ class ListenWorker(threading.Thread):
                           socket.IPPROTO_UDP)
         # 允许端口复用
         s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        #socket.IP_MULTICAST_LOOP 设置为1 ，才能被客房端发现
+        #socket.IP_MULTICAST_LOOP 设置为1 ，才能发现别的服务端
         s.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_LOOP, 1)
         # 绑定监听多播数据包的端口
         s.bind(('0.0.0.0', 1900))
@@ -1282,8 +1282,8 @@ class SearchWorker(threading.Thread):
         self.ondata = ondata
         self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.udp_socket.setblocking(False)
-        #socket.IP_MULTICAST_LOOP 设置为1 ，才能被客房端发现
-        self.udp_socket.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_LOOP,1)
+        #socket.IP_MULTICAST_LOOP 设置为0 ，自身服务端才能被别的客房端发现
+        self.udp_socket.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_LOOP,0)
 
     def run(self):
         while True:
@@ -1645,7 +1645,7 @@ class Handler(BaseHTTPRequestHandler):
 if __name__ == '__main__':
     try:
         localIp = getLocalIp()
-        host = (localIp, 8888)
+        host = (localIp, 8886)
         xmlreplayer = XmlReplay(localIp, host[1],
                                 "dlna({}:{})".format(localIp, host[1]))
         dlna = Dlna()

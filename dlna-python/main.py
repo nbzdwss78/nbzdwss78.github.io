@@ -18,7 +18,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 import xml.etree.ElementTree as ET
 
-player = "mpv.exe" if sys.platform == 'win32' else "ffplay -fs"  # or "mpv -fs"
+player = "ffplay.exe -fs" if sys.platform == 'win32' else "ffplay -fs"  # or "mpv -fs"
 
 uuid = "27d6877e-{}-ea12-abdf-cf8d50e36d54".format(randint(1000, 9999))
 
@@ -854,8 +854,7 @@ class ListenWorker(threading.Thread):
                           socket.IPPROTO_UDP)
         # 允许端口复用
         s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        #s.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_LOOP, 0)
-        s.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_LOOP, 1)
+        s.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_LOOP, 0)
         # 绑定监听多播数据包的端口
         s.bind(('0.0.0.0', 1900))
         # 声明该socket为多播类型
@@ -894,8 +893,9 @@ class SearchWorker(threading.Thread):
         self.ondata = ondata
         self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.udp_socket.setblocking(False)
-        #self.udp_socket.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_LOOP,0)
-        self.udp_socket.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_LOOP,1)
+        self.udp_socket.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_LOOP,
+                                   0)
+
     def run(self):
         while True:
             self.search("ssdp:all")
