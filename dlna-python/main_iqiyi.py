@@ -1282,7 +1282,7 @@ class SearchWorker(threading.Thread):
         self.ondata = ondata
         self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.udp_socket.setblocking(False)
-        #socket.IP_MULTICAST_LOOP 设置为0 ，自身服务端才能被别的客房端发现
+        #socket.IP_MULTICAST_LOOP 设置为0 ，自身服务端才能被别的客房端发现，或者设置为1试试
         self.udp_socket.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_LOOP,0)
 
     def run(self):
