@@ -18,7 +18,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 import xml.etree.ElementTree as ET
 
-player = "ffplay.exe -fs" if sys.platform == 'win32' else "ffplay -fs"  # or "mpv -fs"
+player = "mpv.exe" if sys.platform == 'win32' else "ffplay -fs"  # or "mpv -fs"
 
 uuid = "27d6877e-{}-ea12-abdf-cf8d50e36d54".format(randint(1000, 9999))
 
