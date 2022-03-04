@@ -1555,7 +1555,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/html')
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
-        with open("index.html", "rb") as f:
+        with open("index_iqiyi.html", "rb") as f:
             self.wfile.write(f.read())
 
     def vue(self):
