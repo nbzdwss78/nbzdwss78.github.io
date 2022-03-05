@@ -1,0 +1,5 @@
+
+pyinstaller  -F  --add-data="index_iqiyi.html;."   --add-data="static/*;static" --add-binary="mpv.exe;."   --icon=static/icon.ico  main_iqiyi.py
+
+
+pyinstaller --noconfirm -F -w --additional-hooks-dir=. --add-data=".version;." --add-data="macast/xml/*;macast/xml"  --add-data="i18n/zh_CN/LC_MESSAGES/*.mo;i18n/zh_CN/LC_MESSAGES" --add-data="assets/*;assets" --add-binary="bin/mpv.exe;bin" --icon=assets/icon.ico Macast.py
