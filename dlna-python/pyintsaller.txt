@@ -1,3 +1,4 @@
+Anaconda 32位虚拟环境3.8 打包才能在 win7 32 位运行
 
 pyinstaller  -F  --add-data="index_iqiyi.html;."   --add-data="static/*;static" --add-binary="mpv.exe;."   --icon=static/icon.ico  main_iqiyi.py
 
