@@ -167,6 +167,8 @@
           $section.style.position = 'fixed'
          // $section.style.position = 'relative'
           $section.style.zIndex = '99999'
+          $section.style.fontSize = '14px'
+          $section.style.overflowY = 'auto'
           $section.style.backgroundColor = 'green'
           document.body.appendChild($section);
 
