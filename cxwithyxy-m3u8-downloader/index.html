@@ -375,6 +375,7 @@ new Vue({
     return {
       url: '', // 在线链接
       tips: 'm3u8 视频在线提取工具', // 顶部提示
+      title: '', // 视频标题
       isGetMP4: false, // 是否转码为 MP4 下载
       durationSecond: 0, // 视频持续时长
       isShowRefer: true, // 是否显示推送
@@ -402,6 +403,7 @@ new Vue({
   },
 
   created() {
+    this.getTitle();
     this.getSource();
     window.addEventListener('keyup', this.onKeyup)
   },
@@ -416,6 +418,16 @@ new Vue({
       let { href } = location
       if (href.indexOf('?source=') > -1) {
         this.url = href.split('?source=')[1]
+      }
+    },
+    
+    // 获取视频标题
+    getTitle(){
+      let { href } = location
+      const currentUrl = new URL(location.href)
+      const title = currentUrl.searchParams.get('title')
+      if(title) {
+        this.title = title
       }
     },
 
@@ -623,7 +635,12 @@ new Vue({
         this.finishList[index].status = 'finish'
         this.finishNum++
         if (this.finishNum === this.tsUrlList.length) {
-          this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss'))
+          //this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss'))
+          let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss')
+          if(document.title !== 'm3u8 downloader'){
+            fileName = document.title
+          }
+          this.downloadFile(this.mediaFileList, fileName)
         }
         callback && callback()
       })
@@ -721,7 +738,12 @@ new Vue({
     // 强制下载现有片段
     forceDownload() {
       if (this.mediaFileList.length) {
-        this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss'))
+        //this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss'))
+        let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss')
+        if(document.title !== 'm3u8 downloader'){
+          fileName = document.title
+        }
+        this.downloadFile(this.mediaFileList, fileName)
       } else {
         alert('当前无已下载片段')
       }
