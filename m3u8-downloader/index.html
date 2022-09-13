@@ -400,6 +400,7 @@ new Vue({
     return {
       url: '', // 在线链接
       tips: 'm3u8 视频在线提取工具', // 顶部提示
+      title: '', // 视频标题
       isPause: false, // 是否暂停下载
       isGetMP4: false, // 是否转码为 MP4 下载
       durationSecond: 0, // 视频持续时长
@@ -433,6 +434,7 @@ new Vue({
   },
 
   created() {
+  	this.getTitle();
     this.getSource();
     document.getElementById('loading') && document.getElementById('loading').remove()
     window.addEventListener('keyup', this.onKeyup)
@@ -450,6 +452,17 @@ new Vue({
         this.url = href.split('?source=')[1]
       }
     },
+    
+    // 获取视频标题
+    getTitle(){
+      let { href } = location
+      const currentUrl = new URL(location.href)
+      const title = currentUrl.searchParams.get('title')
+      if(title) {
+        this.title = title
+      }
+    },
+
 
     // 退出弹窗
     onKeyup(event) {
@@ -485,6 +498,10 @@ new Vue({
     applyURL(targetURL, baseURL) {
       baseURL = baseURL || location.href
       if (targetURL.indexOf('http') === 0) {
+      	// 当前页面使用 https 协议时，强制使 ts 资源也使用 https 协议获取
+        if(location.href.indexOf('https') === 0){
+          return targetURL.replace('http://','https://')
+        }
         return targetURL
       } else if (targetURL[0] === '/') {
         let domain = baseURL.split('/')
@@ -690,7 +707,12 @@ new Vue({
         this.finishList[index].status = 'finish'
         this.finishNum++
         if (this.finishNum === this.rangeDownload.targetSegment) {
-          this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss'))
+          //this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss'))
+          let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss')
+          if(document.title !== 'm3u8 downloader'){
+            fileName = document.title
+          }
+          this.downloadFile(this.mediaFileList, fileName)
         }
         callback && callback()
       })
@@ -794,7 +816,12 @@ new Vue({
     // 强制下载现有片段
     forceDownload() {
       if (this.mediaFileList.length) {
-        this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss'))
+        //this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss'))
+        let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss')
+        if(document.title !== 'm3u8 downloader'){
+          fileName = document.title
+        }
+        this.downloadFile(this.mediaFileList, fileName)
       } else {
         alert('当前无已下载片段')
       }
