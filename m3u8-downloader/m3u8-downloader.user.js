@@ -144,8 +144,8 @@
       
       ajax({
         // url: 'https://localhost/cxwithyxy-m3u8-downloader/',
-        //url: 'https://gxggsrmyy.github.io/m3u8-downloader/',
-        url: 'https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/',
+        url: 'https://gxggsrmyy.github.io/m3u8-downloader/',
+        //url: 'https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/',
         success: (fileStr) => {
           let fileList = fileStr.split(`<!--vue 前端框架--\>`);
           let dom = fileList[0];
