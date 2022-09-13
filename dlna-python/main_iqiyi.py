@@ -1282,7 +1282,7 @@ class SearchWorker(threading.Thread):
         self.ondata = ondata
         self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.udp_socket.setblocking(False)
-        #socket.IP_MULTICAST_LOOP 设置为0 ，自身服务端才能被别的客房端发现，或者设置为1试试
+        #socket.IP_MULTICAST_LOOP 设置为0 ，自身服务端不能被自身客户端发现,试试原版客户端，或者设置为1试试
         self.udp_socket.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_LOOP,0)
 
     def run(self):
@@ -1555,7 +1555,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/html')
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
-        with open("index_iqiyi.html", "rb") as f:
+        with open(get_base_path("index_iqiyi.html"), "rb") as f:
             self.wfile.write(f.read())
 
     def vue(self):
@@ -1563,7 +1563,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'application/x-javascript')
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
-        with open("static/vue.min.js", "rb") as f:
+        with open(get_base_path("static/vue.min.js"), "rb") as f:
             self.wfile.write(f.read())
 
     def vuetify(self):
@@ -1571,7 +1571,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'application/x-javascript')
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
-        with open("static/vuetify.min.js", "rb") as f:
+        with open(get_base_path("static/vuetify.min.js"), "rb") as f:
             self.wfile.write(f.read())    
 
     def vuetifycss(self):
@@ -1579,7 +1579,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/css')
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
-        with open("static/vuetify.min.css", "rb") as f:
+        with open(get_base_path("static/vuetify.min.css"), "rb") as f:
             self.wfile.write(f.read())  
 
     def Roboto(self):
@@ -1587,7 +1587,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/css')
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
-        with open("static/Roboto.css", "rb") as f:
+        with open(get_base_path("static/Roboto.css"), "rb") as f:
             self.wfile.write(f.read())  
 
     def materialdesignicons(self):
@@ -1595,7 +1595,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/css')
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
-        with open("static/materialdesignicons.min.css", "rb") as f:
+        with open(get_base_path("static/materialdesignicons.min.css"), "rb") as f:
             self.wfile.write(f.read())                              
 
     def notfound(self):

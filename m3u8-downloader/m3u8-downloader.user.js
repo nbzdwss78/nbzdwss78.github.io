@@ -6,6 +6,8 @@
 // @author       Momo707577045
 // @include      *
 // @exclude      http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html
+// @exclude      https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html
+// @exclude      https://www.bilibili.com/*
 // @grant        none
 // @run-at document-start
 // ==/UserScript==
@@ -47,7 +49,7 @@
           m3u8Target = url
           console.log('【m3u8】----------------------------------------')
           console.log(url)
-          console.log('http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + url)
+          console.log('http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + url + '&title=' + document.title)
         } else {
          console.log('tamper-monkey【m3u8】没有可下载的TS文件 或者有m3u8文件嵌套')
          console.log(url)
@@ -133,9 +135,9 @@
     })
 
     m3u8Jump.addEventListener('click', function() {
-      //window.open('https://localhost/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target)
-      window.open('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + m3u8Target)
-      //window.open('https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target)
+      //window.open('https://localhost/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
+      window.open('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
+      //window.open('https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
     })
 
     m3u8Append.addEventListener('click', function() {
