@@ -816,8 +816,8 @@ new Vue({
     // 强制下载现有片段
     forceDownload() {
       if (this.mediaFileList.length) {
-        //this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss'))
-        let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss')
+        //this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD_hh_mm_ss'))
+        let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD_hh_mm_ss')
         if(document.title !== 'm3u8 downloader'){
           fileName = document.title
         }
