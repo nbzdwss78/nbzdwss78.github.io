@@ -707,8 +707,8 @@ new Vue({
         this.finishList[index].status = 'finish'
         this.finishNum++
         if (this.finishNum === this.rangeDownload.targetSegment) {
-          //this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss'))
-          let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss')
+          //this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD_hh_mm_ss'))
+          let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD_hh_mm_ss')
           if(document.title !== 'm3u8 downloader'){
             fileName = document.title
           }
