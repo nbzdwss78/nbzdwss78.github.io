@@ -137,6 +137,7 @@
     m3u8Jump.addEventListener('click', function() {
       //window.open('https://localhost/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
       window.open('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
+      //window.open('https://gxggsrmyy.github.io/m3u8-downloader/index-en.html?source=' + m3u8Target + '&title=' + document.title)
       //window.open('https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
     })
 
@@ -144,7 +145,8 @@
       
       ajax({
         // url: 'https://localhost/cxwithyxy-m3u8-downloader/',
-        url: 'https://gxggsrmyy.github.io/m3u8-downloader/',
+        //url: 'https://gxggsrmyy.github.io/m3u8-downloader/',
+        url: 'https://gxggsrmyy.github.io/m3u8-downloader/index-en.html',
         //url: 'https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/',
         success: (fileStr) => {
           let fileList = fileStr.split(`<!--vue 前端框架--\>`);
