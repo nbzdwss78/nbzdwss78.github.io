@@ -8,6 +8,8 @@
 // @exclude      http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html
 // @exclude      https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html
 // @exclude      https://www.bilibili.com/*
+// @downloadURL  https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader.user.js
+// @updateURL    https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader.user.js
 // @grant        none
 // @run-at document-start
 // ==/UserScript==
@@ -135,10 +137,10 @@
     })
 
     m3u8Jump.addEventListener('click', function() {
-      //window.open('https://localhost/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
-      window.open('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
-      //window.open('https://gxggsrmyy.github.io/m3u8-downloader/index-en.html?source=' + m3u8Target + '&title=' + document.title)
-      //window.open('https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
+      //window.open('https://localhost/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + window.top.document.title)
+      window.open('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + window.top.document.title)
+      //window.open('https://gxggsrmyy.github.io/m3u8-downloader/index-en.html?source=' + m3u8Target + '&title=' + window.top.document.title)
+      //window.open('https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + window.top.document.title)
     })
 
     m3u8Append.addEventListener('click', function() {
