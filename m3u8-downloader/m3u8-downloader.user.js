@@ -51,7 +51,7 @@
           m3u8Target = url
           console.log('【m3u8】----------------------------------------')
           console.log(url)
-          console.log('http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + url + '&title=' + window.top.document.title)
+          console.log('http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + url + '&title=' + document.title)
         } else {
          console.log('tamper-monkey【m3u8】没有可下载的TS文件 或者有m3u8文件嵌套')
          console.log(url)
@@ -137,11 +137,11 @@
     })
 
     m3u8Jump.addEventListener('click', function() {
-      //window.open('https://localhost/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + window.top.document.title)
-      //window.open('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + window.top.document.title)
-      //window.open('https://gxggsrmyy.github.io/m3u8-downloader/index-en.html?source=' + m3u8Target + '&title=' + window.top.document.title)
-      //window.open('https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + window.top.document.title)
-      window.open('//blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + window.top.document.title)
+      //window.open('https://localhost/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
+      //window.open('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
+      window.open('https://gxggsrmyy.github.io/m3u8-downloader/index-en.html?source=' + m3u8Target + '&title=' + document.title)
+      //window.open('https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
+      //window.open('//blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
     })
 
     m3u8Append.addEventListener('click', function() {
@@ -151,6 +151,7 @@
         //url: 'https://gxggsrmyy.github.io/m3u8-downloader/',
         url: 'https://gxggsrmyy.github.io/m3u8-downloader/index-en.html',
         //url: 'https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/',
+        //url: 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html',
         success: (fileStr) => {
           let fileList = fileStr.split(`<!--vue 前端框架--\>`);
           let dom = fileList[0];
