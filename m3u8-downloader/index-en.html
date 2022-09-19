@@ -699,7 +699,7 @@ new Vue({
         this.finishList[index].status = 'finish'
         this.finishNum++
         if (this.finishNum === this.rangeDownload.targetSegment) {
-          this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss'))
+          this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD_hh_mm_ss'))
         }
         callback && callback()
       })
@@ -803,7 +803,7 @@ new Vue({
     // 强制下载现有片段
     forceDownload() {
       if (this.mediaFileList.length) {
-        this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss'))
+        this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD_hh_mm_ss'))
       } else {
         alert('There is no ts fragment to download')
       }
