@@ -1,15 +1,15 @@
 // ==UserScript==
 // @name         m3u8-downloader
 // @namespace    https://github.com/Momo707577045/m3u8-downloader
-// @version      0.6.0
+// @version      0.5.0
 // @description  https://github.com/Momo707577045/m3u8-downloader 配套插件
 // @author       Momo707577045
 // @include      *
 // @exclude      http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html
 // @exclude      https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html
 // @exclude      https://www.bilibili.com/*
-// @downloadURL	 https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/m3u8-downloader.user.js
-// @updateURL	   https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/m3u8-downloader.user.js
+// @downloadURL  https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader-cn.user.js
+// @updateURL    https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader-cn.user.js
 // @grant        none
 // @run-at document-start
 // ==/UserScript==
@@ -46,12 +46,17 @@
     ajax({
       url,
       success: (fileStr) => {
-        if (fileStr.indexOf('.ts') > -1) {
+        if (fileStr.indexOf('.ts') > -1 || fileStr.indexOf('.image') > -1 || fileStr.indexOf('http') > -1 || fileStr.indexOf('.mp3') > -1) {
           appendDom()
           m3u8Target = url
           console.log('【m3u8】----------------------------------------')
           console.log(url)
-          console.log('http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + url + '&title=' + getTitle())
+          console.log('http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + url + '&title=' + document.title)
+          console.log('https://gxggsrmyy.github.io/m3u8-downloader/index-cn.html?source=' + url + '&title=' + document.title)
+
+        } else {
+         console.log('tamper-monkey【m3u8】没有可下载的TS文件 或者有m3u8文件嵌套')
+         console.log(url)
         }
       }
     })
@@ -72,22 +77,6 @@
       }
       return realXHR
     }
-    XMLHttpRequest.UNSENT = 0;
-    XMLHttpRequest.OPENED = 1;
-    XMLHttpRequest.HEADERS_RECEIVED = 2;
-    XMLHttpRequest.LOADING = 3;
-    XMLHttpRequest.DONE = 4;
-  }
-
-  // 获取顶部 window title，因可能存在跨域问题，故使用 try catch 进行保护
-  function getTitle(){
-    let title = document.title;
-    try {
-      title = window.top.document.title
-    } catch (error) {
-      console.log(error)
-    }
-    return title
   }
 
   function appendDom() {
@@ -150,20 +139,21 @@
     })
 
     m3u8Jump.addEventListener('click', function() {
-
-      window.open('//blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + getTitle())
+      //window.open('https://localhost/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
+      window.open('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
+      //window.open('https://gxggsrmyy.github.io/m3u8-downloader/index-en.html?source=' + m3u8Target + '&title=' + document.title)
+      //window.open('https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
+      //window.open('//blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
     })
 
     m3u8Append.addEventListener('click', function() {
-      var _hmt = _hmt || [];
-      (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?1f12b0865d866ae1b93514870d93ce89";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
+      
       ajax({
-        url: 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html',
+        // url: 'https://localhost/cxwithyxy-m3u8-downloader/',
+        //url: 'https://gxggsrmyy.github.io/m3u8-downloader/',
+        url: 'https://gxggsrmyy.github.io/m3u8-downloader/index-en.html',
+        //url: 'https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/',
+        //url: 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html',
         success: (fileStr) => {
           let fileList = fileStr.split(`<!--vue 前端框架--\>`);
           let dom = fileList[0];
@@ -179,39 +169,34 @@
           let $section = document.createElement('section')
           $section.innerHTML = `${dom}`
           $section.style.width = '100%'
-          $section.style.height = '100%'
-          $section.style.maxHeight = '800px'
-          $section.style.bottom = '0'
-          $section.style.left = '0'
-          $section.style.position = 'absolute'
-          $section.style.zIndex = '9999'
+          $section.style.height = '800px'
+          $section.style.top = '-50px'
+          $section.style.left = '0px'
+          $section.style.position = 'fixed'
+         // $section.style.position = 'relative'
+          $section.style.zIndex = '99999'
           $section.style.fontSize = '14px'
           $section.style.overflowY = 'auto'
-          $section.style.backgroundColor = 'white'
+          $section.style.backgroundColor = 'green'
           document.body.appendChild($section);
 
           // 加载 ASE 解密
           let $ase = document.createElement('script')
-          $ase.src = 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/aes-decryptor.js'
+          $ase.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/aes-decryptor.js'
 
           // 加载 mp4 转码
           let $mp4 = document.createElement('script')
-          $mp4.src = 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/mux-mp4.js'
+          $mp4.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/mux-mp4.js'
 
           // 加载 vue
           let $vue = document.createElement('script')
-          $vue.src = 'https://upyun.luckly-mjw.cn/lib/vue.js'
-
-          // 加载 stream 流式下载器
-          let $streamSaver = document.createElement('script')
-          $streamSaver.src = 'https://upyun.luckly-mjw.cn/lib/stream-saver.js'
+          $vue.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/vue.min.js'
 
           // 监听 vue 加载完成，执行业务代码
           $vue.addEventListener('load', function() {eval(script)})
-          document.body.appendChild($streamSaver);
+          document.body.appendChild($vue);
           document.body.appendChild($mp4);
           document.body.appendChild($ase);
-          document.body.appendChild($vue);
           alert('注入成功，请滚动到页面底部')
         },
       })
