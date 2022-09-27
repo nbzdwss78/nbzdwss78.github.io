@@ -49,6 +49,8 @@
         if (fileStr.indexOf('.ts') > -1 || fileStr.indexOf('.image') > -1 || fileStr.indexOf('http') > -1 || fileStr.indexOf('.mp3') > -1) {
           appendDom()
           m3u8Target = url
+          console.log('【monkey】----------------------------------------')
+          console.log(' https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader-cn.user.js')
           console.log('【m3u8】----------------------------------------')
           console.log(url)
           console.log('http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + url + '&title=' + getTitle())
