@@ -9,7 +9,7 @@
 // @exclude      https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html
 // @exclude      https://www.bilibili.com/*
 // @downloadURL	 https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/m3u8-downloader.user.js
-// @updateURL	   https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/m3u8-downloader.user.js
+// @updateURL	   https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader.user.js
 // @grant        none
 // @run-at document-start
 // ==/UserScript==
