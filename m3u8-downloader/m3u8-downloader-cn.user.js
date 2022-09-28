@@ -49,9 +49,13 @@
         if (fileStr.indexOf('.ts') > -1 || fileStr.indexOf('.image') > -1 || fileStr.indexOf('http') > -1 || fileStr.indexOf('.mp3') > -1) {
           appendDom()
           m3u8Target = url
+          console.log('【monkey】----------------------------------------')
+          console.log(' https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader.user.js')
+          console.log(' https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader-cn.user.js')
           console.log('【m3u8】----------------------------------------')
           console.log(url)
           console.log('http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + url + '&title=' + document.title)
+          console.log('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + url + '&title=' + document.title)
           console.log('https://gxggsrmyy.github.io/m3u8-downloader/index-cn.html?source=' + url + '&title=' + document.title)
 
         } else {
@@ -169,12 +173,12 @@
           let $section = document.createElement('section')
           $section.innerHTML = `${dom}`
           $section.style.width = '100%'
-          $section.style.height = '800px'
-          $section.style.top = '-50px'
-          $section.style.left = '0px'
-          $section.style.position = 'fixed'
-         // $section.style.position = 'relative'
-          $section.style.zIndex = '99999'
+          $section.style.height = '100%'
+          $section.style.maxHeight = '800px'
+          $section.style.bottom = '0'
+          $section.style.left = '0'
+          $section.style.position = 'absolute'
+          $section.style.zIndex = '9999'
           $section.style.fontSize = '14px'
           $section.style.overflowY = 'auto'
           $section.style.backgroundColor = 'green'
