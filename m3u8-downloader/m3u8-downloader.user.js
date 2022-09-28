@@ -46,12 +46,21 @@
     ajax({
       url,
       success: (fileStr) => {
-        if (fileStr.indexOf('.ts') > -1) {
+       if (fileStr.indexOf('.ts') > -1 || fileStr.indexOf('.image') > -1 || fileStr.indexOf('http') > -1 || fileStr.indexOf('.mp3') > -1) {
           appendDom()
           m3u8Target = url
+          console.log('【monkey】----------------------------------------')
+          console.log(' https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader.user.js')
+          console.log(' https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader-cn.user.js')
           console.log('【m3u8】----------------------------------------')
           console.log(url)
           console.log('http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + url + '&title=' + getTitle())
+          console.log('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + url + '&title=' + getTitle())
+          console.log('https://gxggsrmyy.github.io/m3u8-downloader/index-cn.html?source=' + url + '&title=' + getTitle())
+
+        } else {
+         console.log('tamper-monkey【m3u8】没有可下载的TS文件 或者有m3u8文件嵌套')
+         console.log(url)
         }
       }
     })
