@@ -774,7 +774,7 @@ new Vue({
             this.streamWriter.close()
           }
         } else if (this.finishNum === this.rangeDownload.targetSegment) {
-          let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss')
+          let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD_hh_mm_ss')
           if(document.title !== 'm3u8 downloader'){
             fileName = this.getDocumentTitle()
           }
@@ -894,7 +894,7 @@ new Vue({
     // 强制下载现有片段
     forceDownload() {
       if (this.mediaFileList.length) {
-        let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss')
+        let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD_hh_mm_ss')
         if(document.title !== 'm3u8 downloader'){
           fileName = this.getDocumentTitle()
         }
