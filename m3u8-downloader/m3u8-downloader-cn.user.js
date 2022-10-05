@@ -46,7 +46,7 @@
     ajax({
       url,
       success: (fileStr) => {
-        if (fileStr.indexOf('.ts') > -1 || fileStr.indexOf('.image') > -1 || fileStr.indexOf('http') > -1 || fileStr.indexOf('.mp3') > -1) {
+        if (fileStr.indexOf('.ts') > -1 || fileStr.indexOf('.image') > -1 || fileStr.indexOf('http') > -1 || fileStr.indexOf('.m3u8') > -1) {
           appendDom()
           m3u8Target = url
           console.log('【monkey】----------------------------------------')
