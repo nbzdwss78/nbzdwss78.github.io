@@ -152,7 +152,7 @@
     m3u8Jump.addEventListener('click', function() {
 
       //window.open('//blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + getTitle())
-      window.open('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + m3u8Target )
+      window.open('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + getTitle())
     })
 
     m3u8Append.addEventListener('click', function() {
