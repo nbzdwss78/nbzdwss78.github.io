@@ -152,7 +152,8 @@
     m3u8Jump.addEventListener('click', function() {
 
       //window.open('//blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + getTitle())
-      window.open('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + getTitle())
+     // window.open('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + getTitle())
+      window.open('https://gxggsrmyy.github.io/m3u8-downloader/index-cn.html?source=' + m3u8Target + '&title=' + getTitle())
     })
 
     m3u8Append.addEventListener('click', function() {
@@ -166,6 +167,7 @@
       ajax({
         // url: 'https://localhost/cxwithyxy-m3u8-downloader/',
         url: 'https://gxggsrmyy.github.io/m3u8-downloader/',
+        //url: 'https://gxggsrmyy.github.io/m3u8-downloader/index-cn.html',
         //url: 'https://gxggsrmyy.github.io/m3u8-downloader/index-en.html',
         //url: 'https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/',
         //url: 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html',
