@@ -480,7 +480,6 @@ new Vue({
   },
 
   created() {
-    this.getTitle();
     this.getSource();
     window.addEventListener('keyup', this.onKeyup)
     setInterval(this.retryAll.bind(this), 2000) // 每两秒重新下载一遍错误片段，实现错误自动重试
@@ -494,23 +493,10 @@ new Vue({
     // 获取链接中携带的资源链接
     getSource() {
       let { href } = location
-      const currentUrl = new URL(location.href)
-      const url = currentUrl.searchParams.get('source')
-      if (url) {
-        this.url = url
+      if (href.indexOf('?source=') > -1) {
+        this.url = href.split('?source=')[1]
       }
     },
-
-    // 获取视频标题
-    getTitle(){
-      let { href } = location
-      const currentUrl = new URL(location.href)
-      const title = currentUrl.searchParams.get('title')
-      if(title) {
-        this.title = title
-      }
-    },
-
 
     // 获取顶部 window title，因可能存在跨域问题，故使用 try catch 进行保护
     getDocumentTitle(){
@@ -575,6 +561,7 @@ new Vue({
     // 使用流式下载，边下载边保存，解决大视频文件内存不足的难题 
     streamDownload(isMp4){
       this.isGetMP4 = isMp4
+      this.title = new URL(this.url).searchParams.get('title') || this.title // 获取视频标题
       let fileName = this.title || this.formatTime(new Date(), 'YYYY_MM_DD hh_mm_ss')
       if(document.title !== 'm3u8 downloader'){
         fileName = this.getDocumentTitle()
@@ -595,7 +582,7 @@ new Vue({
         alert('请输入链接')
         return
       }
-      if (this.url.toLowerCase().indexOf('.m3u8') === -1) {
+      if (this.url.toLowerCase().indexOf('m3u8') === -1) {
         alert('链接有误，请重新输入')
         return
       }
@@ -617,6 +604,7 @@ new Vue({
         window.history.replaceState(null, '', `${location.href.split('?')[0]}?source=${this.url}`)
       }
 
+      this.title = new URL(this.url).searchParams.get('title') || this.title // 获取视频标题
       this.tips = 'm3u8 文件下载中，请稍后'
       this.beginTime = new Date()
       this.ajax({
@@ -627,7 +615,7 @@ new Vue({
 
           // 提取 ts 视频片段地址
           m3u8Str.split('\n').forEach((item) => {
-            if (item.toLowerCase().indexOf(".ts") > -1 || item.toLowerCase().indexOf(".image") > -1 || item.toLowerCase().indexOf(".m3u8") > -1 || item.startsWith('http')) {
+            if (/.(png|image|ts|jpg|mp4|jpeg)/.test(item)) {
               this.tsUrlList.push(this.applyURL(item, this.url))
               this.finishList.push({
                 title: item,
@@ -751,7 +739,7 @@ new Vue({
       }
 
       // 建立多少个 ajax 线程
-      for (let i = 0; i < Math.min(1, this.rangeDownload.targetSegment - this.finishNum); i++) {
+      for (let i = 0; i < Math.min(6, this.rangeDownload.targetSegment - this.finishNum); i++) {
         download()
       }
     },
@@ -777,7 +765,7 @@ new Vue({
             this.streamWriter.close()
           }
         } else if (this.finishNum === this.rangeDownload.targetSegment) {
-          let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD_hh_mm_ss')
+          let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss')
           if(document.title !== 'm3u8 downloader'){
             fileName = this.getDocumentTitle()
           }
@@ -897,7 +885,7 @@ new Vue({
     // 强制下载现有片段
     forceDownload() {
       if (this.mediaFileList.length) {
-        let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD_hh_mm_ss')
+        let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss')
         if(document.title !== 'm3u8 downloader'){
           fileName = this.getDocumentTitle()
         }
@@ -946,19 +934,19 @@ new Vue({
 
           // 加载 ASE 解密
           let $ase = document.createElement('script')
-          $ase.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/aes-decryptor.js'
+          $ase.src = 'https://upyun.luckly-mjw.cn/lib/aes-decryptor.js'
 
           // 加载 mp4 转码
           let $mp4 = document.createElement('script')
-          $mp4.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/mux-mp4.js'
+          $mp4.src = 'https://upyun.luckly-mjw.cn/lib/mux-mp4.js'
 
           // 加载 vue
           let $vue = document.createElement('script')
-          $vue.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/vue.js'
+          $vue.src = 'https://upyun.luckly-mjw.cn/lib/vue.js'
 
           // 加载 stream 流式下载器
           let $streamSaver = document.createElement('script')
-          $streamSaver.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/StreamSaver.js'
+          $streamSaver.src = 'https://upyun.luckly-mjw.cn/lib/stream-saver.js'
 
           // 监听 vue 加载完成，执行业务代码
           $vue.addEventListener('load', () => {${script}})

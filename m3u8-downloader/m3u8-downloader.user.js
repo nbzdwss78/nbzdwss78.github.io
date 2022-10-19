@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         m3u8-downloader
 // @namespace    https://github.com/Momo707577045/m3u8-downloader
-// @version      0.8.0
+// @version      0.10.0
 // @description  https://github.com/Momo707577045/m3u8-downloader 配套插件
 // @author       Momo707577045
 // @include      *
@@ -9,7 +9,7 @@
 // @exclude      https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html
 // @exclude      https://www.bilibili.com/*
 // @downloadURL	 https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/m3u8-downloader.user.js
-// @updateURL	   https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader.user.js
+// @updateURL	   https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/m3u8-downloader.user.js
 // @grant        none
 // @run-at document-start
 // ==/UserScript==
@@ -46,12 +46,14 @@
     ajax({
       url,
       success: (fileStr) => {
-        if (fileStr.indexOf('.ts') > -1 || fileStr.indexOf('.image') > -1 || fileStr.indexOf('http') > -1 || fileStr.indexOf('.m3u8') > -1) {
+        if (/.(png|image|ts|jpg|mp4|jpeg)/.test(fileStr)) {
           appendDom()
-          m3u8Target = url
+          const urlObj = new URL(url)
+          urlObj.searchParams.append('title', getTitle())
+          m3u8Target = urlObj.href
           console.log('【m3u8】----------------------------------------')
-          console.log(url)
-          console.log('http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + url + '&title=' + getTitle())
+          console.log(urlObj)
+          console.log('http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + m3u8Target)
         }
       }
     })
@@ -150,10 +152,7 @@
     })
 
     m3u8Jump.addEventListener('click', function() {
-
-      //window.open('//blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + getTitle())
-     // window.open('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + getTitle())
-      window.open('https://gxggsrmyy.github.io/m3u8-downloader/index-cn.html?source=' + m3u8Target + '&title=' + getTitle())
+      window.open('//blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + m3u8Target)
     })
 
     m3u8Append.addEventListener('click', function() {
@@ -165,12 +164,7 @@
         s.parentNode.insertBefore(hm, s);
       })();
       ajax({
-        // url: 'https://localhost/cxwithyxy-m3u8-downloader/',
-        url: 'https://gxggsrmyy.github.io/m3u8-downloader/',
-        //url: 'https://gxggsrmyy.github.io/m3u8-downloader/index-cn.html',
-        //url: 'https://gxggsrmyy.github.io/m3u8-downloader/index-en.html',
-        //url: 'https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/',
-        //url: 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html',
+        url: 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html',
         success: (fileStr) => {
           let fileList = fileStr.split(`<!--vue 前端框架--\>`);
           let dom = fileList[0];
