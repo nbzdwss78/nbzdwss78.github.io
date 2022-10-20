@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         media-source-extract
 // @namespace    https://github.com/Momo707577045/media-source-extract
-// @version      0.7
+// @version      0.8
 // @description  https://github.com/Momo707577045/media-source-extract 配套插件
 // @author       Momo707577045
 // @include      *
@@ -178,9 +178,6 @@
         _append.call(this, buffer)
       }
       return sourceBuffer
-    }
-    window.MediaSource.prototype.addSourceBuffer.toString = function(){
-        return 'function addSourceBuffer() { [native code] }'
     }
 
     // 添加操作的 dom
