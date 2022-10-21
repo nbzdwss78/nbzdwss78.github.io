@@ -306,7 +306,7 @@
       // 加载 stream 流式下载器
       try {
         let $streamSaver = document.createElement('script')
-        $streamSaver.src = 'https://upyun.luckly-mjw.cn/lib/stream-saver.js'
+        $streamSaver.src = 'https://gxggsrmyy.github.io/media-source-extract/stream-saver.js'
         document.body.appendChild($streamSaver);
         $streamSaver.addEventListener('load', () => {
           $btnStreamDownload.style.display = 'inline-block'
