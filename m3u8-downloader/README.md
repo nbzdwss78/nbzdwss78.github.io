@@ -1,14 +1,7 @@
-### 油猴
-### if (fileStr.indexOf('.ts') > -1 || fileStr.indexOf('.image') > -1 || fileStr.indexOf('http') > -1) {
-
-### if (item.toLowerCase().indexOf(".ts") > -1 || item.toLowerCase().indexOf(".image") > -1 || item.startsWith('http')) {
-
 # m3u8 视频在线提取工具([English version](https://github.com/Momo707577045/m3u8-downloader/blob/master/README-EN.md))
 
 ![界面](http://upyun.luckly-mjw.cn/Assets/m3u8-download/01.jpeg)
 ### [工具在线地址](http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html)，推荐使用 chrome 浏览器。
-
-
 
 ### 研发背景
 - m3u8视频格式简介
@@ -138,14 +131,33 @@
     ![](http://upyun.luckly-mjw.cn/Assets/m3u8-download/16.jpeg)
 
 
-### 油猴插件
+### [油猴插件](https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/m3u8-downloader.user.js)
 
 ![](http://upyun.luckly-mjw.cn/Assets/m3u8-download/15.jpeg)
 
 - 「跳转下载」即新开页面，打开本工具页面，自动携带并解析目标地址
 - 「注入下载」为解决跨域而生，直接将代码注入到当前视频网站，进行视频下载
-- [插件地址点这里](https://greasyfork.org/zh-CN/scripts/422237-m3u8-downloader)
-- 不一定能用，但可以试试。不行就用回老方法试试。
+- 插件源码: https://github.com/Momo707577045/m3u8-downloader/blob/master/m3u8-downloader.user.js
+- 手动添加油猴插件步骤
+  - 点击 tamper-monkey「油猴」icon，点击「添加新脚本」
+
+    ![](http://upyun.luckly-mjw.cn/Assets/m3u8-download/21.jpeg)
+
+  - 在当前位置，粘贴上述链接中的源码
+
+    ![](http://upyun.luckly-mjw.cn/Assets/m3u8-download/17.jpeg)
+
+    ![](http://upyun.luckly-mjw.cn/Assets/m3u8-download/18.jpeg)
+
+  - 点击「文本」，「保存」
+
+    ![](http://upyun.luckly-mjw.cn/Assets/m3u8-download/19.jpeg)
+
+  - 得到如下结果，即为添加成功
+
+    ![](http://upyun.luckly-mjw.cn/Assets/m3u8-download/20.jpeg)
+
+
 
 ### 完结撒花，感谢阅读。
 ![](http://upyun.luckly-mjw.cn/Assets/m3u8-download/14.jpeg)

@@ -560,18 +560,12 @@ new Vue({
 
           // 提取 ts 视频片段地址
           m3u8Str.split('\n').forEach((item) => {
-            if (item.toLowerCase().indexOf(".ts") > -1 || item.toLowerCase().indexOf(".image") > -1 || item.startsWith('http')) {
+            if (item.toLowerCase().indexOf('.ts') > -1 || item.toLowerCase().indexOf('.image') > -1) {
               this.tsUrlList.push(this.applyURL(item, this.url))
               this.finishList.push({
                 title: item,
                 status: ''
               })
-            } else { 
-              console.log('index【m3u8】有未知格式的文件')
-              this.tips = 'index【m3u8】有未知格式的文件'
-            } 
-            if (item.toLowerCase().indexOf(".image") > -1 ) {
-              console.log('视频文件是image,可能要下载mp4格式才能执行播放')
             }
           })
 
@@ -686,7 +680,7 @@ new Vue({
       }
 
       // 建立多少个 ajax 线程
-      for (let i = 0; i < Math.min(1, this.rangeDownload.targetSegment - this.finishNum); i++) {
+      for (let i = 0; i < Math.min(10, this.rangeDownload.targetSegment - this.finishNum); i++) {
         download(i)
       }
     },
@@ -699,7 +693,7 @@ new Vue({
         this.finishList[index].status = 'finish'
         this.finishNum++
         if (this.finishNum === this.rangeDownload.targetSegment) {
-          this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD_hh_mm_ss'))
+          this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss'))
         }
         callback && callback()
       })
@@ -803,7 +797,7 @@ new Vue({
     // 强制下载现有片段
     forceDownload() {
       if (this.mediaFileList.length) {
-        this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD_hh_mm_ss'))
+        this.downloadFile(this.mediaFileList, this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss'))
       } else {
         alert('There is no ts fragment to download')
       }
