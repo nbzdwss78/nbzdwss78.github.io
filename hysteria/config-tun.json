@@ -1,0 +1,32 @@
+{
+"server": "51.158.54.46:10879",
+"protocol": "udp",
+"up_mbps": 2,
+"down_mbps": 8,
+"http": {
+"listen": "127.0.0.1:1081",
+"timeout" : 300,
+"disable_udp": false
+},
+"socks5": {
+"listen": "127.0.0.1:1080",
+"timeout": 300,
+"disable_udp": false
+},
+"tun": {
+    "name": "wintun",    
+    //timeout 必须设置
+    "timeout": 300
+  },
+
+"alpn": "h3",
+"auth_str": "dongtaiwang.com",
+"server_name": "qq.com",
+"insecure": true,
+"recv_window_conn": 6291456,
+"recv_window": 25165824,
+"disable_mtu_discovery": true,
+"resolver": "https://8.8.8.8:443/dns-query",
+"retry": 3,
+"retry_interval": 3
+}

@@ -1,0 +1,29 @@
+"tun": {
+    "name": "wintun",    
+    //timeout 必须设置
+    "timeout": 300
+  },
+
+
+
+netsh interface ip set address name="wintun" source=static addr=192.168.1.123 mask=255.255.255.0 gateway=none
+
+C:\WINDOWS\system32>route print
+===========================================================================
+接口列表
+ 51...........................WireGuard Tunnel
+ 21...08 00 58 00 00 05 ......SSL VPN Client Virtual Network Adapter
+ 11...14 f6 d8 f3 54 77 ......Microsoft Wi-Fi Direct Virtual Adapter
+  6...16 f6 d8 f3 54 76 ......Microsoft Wi-Fi Direct Virtual Adapter #2
+ 20...14 f6 d8 f3 54 76 ......Intel(R) Wireless-AC 9462
+  1...........................Software Loopback Interface 1
+===========================================================================
+
+
+netsh interface ip set address name="wintun" source=static addr=192.168.123.1 mask=255.255.255.0 gateway=none
+
+netsh interface ip add dns "wintun"   223.5.5.5   
+netsh interface ip add dns "wintun"   223.6.6.6 
+netsh interface ip add dns "wintun"   8.8.8.8
+route add 0.0.0.0 mask 0.0.0.0 192.168.123.1    metric 5  if  51
+route add 51.159.103.77 mask 255.255.255.255 192.168.1.1  
