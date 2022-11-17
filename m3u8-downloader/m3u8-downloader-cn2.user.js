@@ -187,15 +187,15 @@
 
           // 加载 ASE 解密
           let $ase = document.createElement('script')
-          $ase.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/aes-decryptor.js'
+          $ase.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/cnlib/aes-decryptor.js'
 
           // 加载 mp4 转码
           let $mp4 = document.createElement('script')
-          $mp4.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/mux-mp4.js'
+          $mp4.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/cnlib/mux-mp4.js'
 
           // 加载 vue
           let $vue = document.createElement('script')
-          $vue.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/vue.min.js'
+          $vue.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/cnlib/vue.min.js'
 
           // 监听 vue 加载完成，执行业务代码
           $vue.addEventListener('load', function() {eval(script)})
