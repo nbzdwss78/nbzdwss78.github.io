@@ -54,7 +54,7 @@
           m3u8Target = urlObj.href
           console.log('【m3u8】----------------------------------------')
           console.log(urlObj)
-          console.log('http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + m3u8Target)
+          console.log('https://gxggsrmyy.github.io/m3u8-downloader/index-cn.html?source=' + m3u8Target)
         }
       }
     })
@@ -157,13 +157,7 @@
     })
 
     m3u8Append.addEventListener('click', function() {
-      var _hmt = _hmt || [];
-      (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?1f12b0865d866ae1b93514870d93ce89";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
+      
       ajax({
         url: 'https://gxggsrmyy.github.io/m3u8-downloader/index-cn.html',
         success: (fileStr) => {
@@ -194,19 +188,19 @@
 
           // 加载 ASE 解密
           let $ase = document.createElement('script')
-          $ase.src = 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/aes-decryptor.js'
+          $ase.src = 'https://gxggsrmyy.github.io/m3u8-downloader/aes-decryptor.js'
 
           // 加载 mp4 转码
           let $mp4 = document.createElement('script')
-          $mp4.src = 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/mux-mp4.js'
+          $mp4.src = 'https://gxggsrmyy.github.io/m3u8-downloader/mux-mp4.js'
 
           // 加载 vue
           let $vue = document.createElement('script')
-          $vue.src = 'https://upyun.luckly-mjw.cn/lib/vue.js'
+          $vue.src = 'https://gxggsrmyy.github.io/m3u8-downloader/vue.js'
 
           // 加载 stream 流式下载器
           let $streamSaver = document.createElement('script')
-          $streamSaver.src = 'https://upyun.luckly-mjw.cn/lib/stream-saver.js'
+          $streamSaver.src = 'https://gxggsrmyy.github.io/m3u8-downloader/stream-saver.js'
 
           // 监听 vue 加载完成，执行业务代码
           $vue.addEventListener('load', function() {eval(script)})
