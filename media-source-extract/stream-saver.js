@@ -31,6 +31,7 @@
     supported: true,
     version: { full: '2.0.5', major: 2, minor: 0, dot: 5 },
     mitm: 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/media-source-extract/stream-saver-mitm.html'
+  
   }
 
   /**
