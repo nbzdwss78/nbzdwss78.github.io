@@ -32,9 +32,9 @@
     version: { full: '2.0.5', major: 2, minor: 0, dot: 5 },
     
     //mitm: 'https://gxggsrmyy.github.io/m3u8-downloader/cnlib/stream-saver-mitm.html'
-    mitm: 'https://gxggsrmyy.github.io/media-source-extract/cnlib/stream-saver-mitm.html'
+    //mitm: 'https://gxggsrmyy.github.io/media-source-extract/cnlib/stream-saver-mitm.html'
     
-    //mitm: 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/media-source-extract/stream-saver-mitm.html'
+    mitm: 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/media-source-extract/cnlib/stream-saver-mitm.html'
   }
 
   /**
