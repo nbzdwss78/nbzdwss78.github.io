@@ -417,15 +417,7 @@
 </section>
 </body>
 
-<script>
-var _hmt = _hmt || [];
-(function () {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?1f12b0865d866ae1b93514870d93ce89";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
+
 <!--vue 前端框架-->
 <script src="https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/cnlib/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/cnlib/aes-decryptor.js"></script>
@@ -562,7 +554,7 @@ new Vue({
     streamDownload(isMp4){
       this.isGetMP4 = isMp4
       this.title = new URL(this.url).searchParams.get('title') || this.title // 获取视频标题
-      let fileName = this.title || this.formatTime(new Date(), 'YYYY_MM_DD hh_mm_ss')
+      let fileName = this.title || this.formatTime(new Date(), 'YYYY_MM_DD_hh_mm_ss')
       if(document.title !== 'm3u8 downloader'){
         fileName = this.getDocumentTitle()
       }
@@ -741,7 +733,7 @@ new Vue({
       }
 
       // 建立多少个 ajax 线程
-      for (let i = 0; i < Math.min(6, this.rangeDownload.targetSegment - this.finishNum); i++) {
+      for (let i = 0; i < Math.min(1, this.rangeDownload.targetSegment - this.finishNum); i++) {
         download()
       }
     },
@@ -767,7 +759,7 @@ new Vue({
             this.streamWriter.close()
           }
         } else if (this.finishNum === this.rangeDownload.targetSegment) {
-          let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss')
+          let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD_hh_mm_ss')
           if(document.title !== 'm3u8 downloader'){
             fileName = this.getDocumentTitle()
           }
@@ -887,7 +879,7 @@ new Vue({
     // 强制下载现有片段
     forceDownload() {
       if (this.mediaFileList.length) {
-        let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD hh_mm_ss')
+        let fileName = this.title || this.formatTime(this.beginTime, 'YYYY_MM_DD_hh_mm_ss')
         if(document.title !== 'm3u8 downloader'){
           fileName = this.getDocumentTitle()
         }
