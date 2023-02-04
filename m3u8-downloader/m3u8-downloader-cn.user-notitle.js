@@ -161,6 +161,7 @@
       
       ajax({
         url: 'https://gxggsrmyy.github.io/m3u8-downloader/index-cn.html',
+        //url: 'https://gxggsrmyy.github.io/m3u8-downloader/index-6cn.html',
         success: (fileStr) => {
           let fileList = fileStr.split(`<!--vue 前端框架--\>`);
           let dom = fileList[0];
