@@ -487,8 +487,8 @@ new Vue({
       let { href } = location
       if (href.indexOf('?source=') > -1) {
         //this.url = href.split('?source=')[1]
-        this.url = href.split('?source=')[1]
-        this.url = this.url.split('?title=')[0]
+        href = href.split('?source=')[1]
+        this.url = href.split('?title=')[0]
         console.log(this.url)
       }
     },
