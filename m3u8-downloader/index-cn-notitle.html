@@ -486,7 +486,9 @@ new Vue({
     getSource() {
       let { href } = location
       if (href.indexOf('?source=') > -1) {
-        this.url = href.split('?source=')[1]
+        //this.url = href.split('?source=')[1]
+        this.url = (href.split('?source=')[1]).split('?title=')[0]
+
       }
     },
 
@@ -498,8 +500,8 @@ new Vue({
       } catch (error) {
         console.log(error)
       }
-      //return title
-      return 'm3u8 downloader'
+      return title
+      //return 'm3u8 downloader'
     },
 
     // 退出弹窗
