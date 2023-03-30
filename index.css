@@ -31,8 +31,9 @@ html, body {
     width: 100vw;
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-    background-image: url(9ff1f11ec92e9bdcc75f7c679ca90fb8.png);
-    
+    /* background-image: url(9ff1f11ec92e9bdcc75f7c679ca90fb8.png);
+    */
+    background-image: black
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
