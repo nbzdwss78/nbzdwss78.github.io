@@ -80,12 +80,12 @@
                 <h3>添加快捷方式</h3>
                 <div>
                     <p><span style="color: #b83941;">*</span> 名称</p>
-                    <input id="inpt" type="text" placeholder="请输入名称" v-model="bookObj.title" @focus="dwar1 = false">
+                    <input id="inpt" type="text" placeholder="请输入名称" value="https://www.google.com" v-model="bookObj.title" @focus="dwar1 = false">
                     <span class="dwar" v-show="dwar1">信息错误</span>
                 </div>
                 <div>
                     <p><span style="color: #b83941;">*</span> 网址</p>
-                    <input id="inpt" type="text" placeholder="https://www.google.com" v-model="bookObj.siteLink"
+                    <input id="inpt" type="text" placeholder="https://www.google.com" value="https://www.google.com" v-model="bookObj.siteLink"
                         @focus="dwar2 = false">
                     <span class="dwar" v-show="dwar2">信息错误</span>
                 </div>
