@@ -1,1 +1,5 @@
-node_modules/
+._*
+www
+cert
+nginx
+*.sh
