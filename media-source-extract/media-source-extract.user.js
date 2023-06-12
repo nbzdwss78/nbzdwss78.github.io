@@ -17,7 +17,7 @@
   (function () {
     if (document.getElementById('media-source-extract')) {
       return
-     }
+    }
 
     // 复写 call 函数，绕过劫持检查
     Function.prototype.toString.call = function (caller) {
