@@ -172,7 +172,6 @@
     let _addSourceBuffer = window.MediaSource.prototype.addSourceBuffer
     window.MediaSource.prototype.addSourceBuffer = function addSourceBuffer(mime) {
       _appendDom()
-
       let sourceBuffer = _addSourceBuffer.call(this, mime)
       let _append = sourceBuffer.appendBuffer
       let bufferList = []
