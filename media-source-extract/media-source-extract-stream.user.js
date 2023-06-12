@@ -303,7 +303,7 @@
       // 加载 stream 流式下载器
       try {
         let $streamSaver = document.createElement('script')
-        $streamSaver.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/media-source-extract/cnlib/stream-saver.js'
+        $streamSaver.src = 'https://cdn.jsdelivr.net/gh/nbzdwss78/nbzdwss78.github.io@master/media-source-extract/cnlib/stream-saver.js'
         document.body.appendChild($streamSaver);
         $streamSaver.addEventListener('load', () => {
           $btnStreamDownload.style.display = 'inline-block'
