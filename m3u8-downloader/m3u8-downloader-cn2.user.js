@@ -8,8 +8,8 @@
 // @exclude      http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html
 // @exclude      https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html
 // @exclude      https://www.bilibili.com/*
-// @downloadURL  https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader-cn.user.js
-// @updateURL    https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader-cn.user.js
+// @downloadURL  https://nbzdwss78.github.io/m3u8-downloader/m3u8-downloader-cn.user.js
+// @updateURL    https://nbzdwss78.github.io/m3u8-downloader/m3u8-downloader-cn.user.js
 // @grant        none
 // @run-at document-start
 // ==/UserScript==
@@ -50,13 +50,13 @@
           appendDom()
           m3u8Target = url
           console.log('【monkey】----------------------------------------')
-          console.log(' https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader.user.js')
-          console.log(' https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader-cn.user.js')
+          console.log(' https://nbzdwss78.github.io/m3u8-downloader/m3u8-downloader.user.js')
+          console.log(' https://nbzdwss78.github.io/m3u8-downloader/m3u8-downloader-cn.user.js')
           console.log('【m3u8】----------------------------------------')
           console.log(url)
           console.log('http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + url + '&title=' + document.title)
-          console.log('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + url + '&title=' + document.title)
-          console.log('https://gxggsrmyy.github.io/m3u8-downloader/index-cn.html?source=' + url + '&title=' + document.title)
+          console.log('https://nbzdwss78.github.io/m3u8-downloader/index.html?source=' + url + '&title=' + document.title)
+          console.log('https://nbzdwss78.github.io/m3u8-downloader/index-cn.html?source=' + url + '&title=' + document.title)
 
         } else {
          console.log('tamper-monkey【m3u8】没有可下载的TS文件 或者有m3u8文件嵌套')
@@ -145,9 +145,9 @@
 
     m3u8Jump.addEventListener('click', function() {
       //window.open('https://localhost/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
-      window.open('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + m3u8Target )
-      //window.open('https://gxggsrmyy.github.io/m3u8-downloader/index-en.html?source=' + m3u8Target + '&title=' + document.title)
-      //window.open('https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
+      window.open('https://nbzdwss78.github.io/m3u8-downloader/index.html?source=' + m3u8Target )
+      //window.open('https://nbzdwss78.github.io/m3u8-downloader/index-en.html?source=' + m3u8Target + '&title=' + document.title)
+      //window.open('https://nbzdwss78.github.io/cxwithyxy-m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
       //window.open('//blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=' + m3u8Target + '&title=' + document.title)
     })
 
@@ -155,9 +155,9 @@
       
       ajax({
         // url: 'https://localhost/cxwithyxy-m3u8-downloader/',
-        //url: 'https://gxggsrmyy.github.io/m3u8-downloader/',
-        url: 'https://gxggsrmyy.github.io/m3u8-downloader/index-en.html',
-        //url: 'https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/',
+        //url: 'https://nbzdwss78.github.io/m3u8-downloader/',
+        url: 'https://nbzdwss78.github.io/m3u8-downloader/index-en.html',
+        //url: 'https://nbzdwss78.github.io/cxwithyxy-m3u8-downloader/',
         //url: 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html',
         success: (fileStr) => {
           let fileList = fileStr.split(`<!--vue 前端框架--\>`);
@@ -187,15 +187,15 @@
 
           // 加载 ASE 解密
           let $ase = document.createElement('script')
-          $ase.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/cnlib/aes-decryptor.js'
+          $ase.src = 'https://cdn.jsdelivr.net/gh/nbzdwss78/nbzdwss78.github.io@master/m3u8-downloader/cnlib/aes-decryptor.js'
 
           // 加载 mp4 转码
           let $mp4 = document.createElement('script')
-          $mp4.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/cnlib/mux-mp4.js'
+          $mp4.src = 'https://cdn.jsdelivr.net/gh/nbzdwss78/nbzdwss78.github.io@master/m3u8-downloader/cnlib/mux-mp4.js'
 
           // 加载 vue
           let $vue = document.createElement('script')
-          $vue.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/cnlib/vue.min.js'
+          $vue.src = 'https://cdn.jsdelivr.net/gh/nbzdwss78/nbzdwss78.github.io@master/m3u8-downloader/cnlib/vue.min.js'
 
           // 监听 vue 加载完成，执行业务代码
           $vue.addEventListener('load', function() {eval(script)})

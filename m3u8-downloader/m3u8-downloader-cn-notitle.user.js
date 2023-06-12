@@ -9,7 +9,7 @@
 // @exclude      https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html
 // @exclude      https://www.bilibili.com/*
 // @downloadURL	 https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/m3u8-downloader.user.js
-// @updateURL	   https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader-cn.user.js
+// @updateURL	   https://nbzdwss78.github.io/m3u8-downloader/m3u8-downloader-cn.user.js
 // @grant        none
 // @run-at document-start
 // ==/UserScript==
@@ -55,7 +55,7 @@
           m3u8Target = urlObj.href
           console.log('【m3u8】----------------------------------------')
           console.log(urlObj)
-          console.log('https://gxggsrmyy.github.io/m3u8-downloader/index-cn.html?source=' + m3u8Target)
+          console.log('https://nbzdwss78.github.io/m3u8-downloader/index-cn.html?source=' + m3u8Target)
         }
       }
     })
@@ -154,14 +154,14 @@
     })
 
     m3u8Jump.addEventListener('click', function() {
-      windowOpen('https://gxggsrmyy.github.io/m3u8-downloader/index.html?source=' + m3u8Target)
+      windowOpen('https://nbzdwss78.github.io/m3u8-downloader/index.html?source=' + m3u8Target)
     })
 
     m3u8Append.addEventListener('click', function() {
       
       ajax({
-        //url: 'https://gxggsrmyy.github.io/m3u8-downloader/index-cn.html',
-        url: 'https://gxggsrmyy.github.io/m3u8-downloader/index-6cn.html',
+        //url: 'https://nbzdwss78.github.io/m3u8-downloader/index-cn.html',
+        url: 'https://nbzdwss78.github.io/m3u8-downloader/index-6cn.html',
         success: (fileStr) => {
           let fileList = fileStr.split(`<!--vue 前端框架--\>`);
           let dom = fileList[0];
@@ -190,19 +190,19 @@
 
           // 加载 ASE 解密
           let $ase = document.createElement('script')
-          $ase.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/cnlib/aes-decryptor.js'
+          $ase.src = 'https://cdn.jsdelivr.net/gh/nbzdwss78/nbzdwss78.github.io@master/m3u8-downloader/cnlib/aes-decryptor.js'
 
           // 加载 mp4 转码
           let $mp4 = document.createElement('script')
-          $mp4.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/cnlib/mux-mp4.js'
+          $mp4.src = 'https://cdn.jsdelivr.net/gh/nbzdwss78/nbzdwss78.github.io@master/m3u8-downloader/cnlib/mux-mp4.js'
 
           // 加载 vue
           let $vue = document.createElement('script')
-          $vue.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/cnlib/vue.js'
+          $vue.src = 'https://cdn.jsdelivr.net/gh/nbzdwss78/nbzdwss78.github.io@master/m3u8-downloader/cnlib/vue.js'
 
           // 加载 stream 流式下载器
           let $streamSaver = document.createElement('script')
-          $streamSaver.src = 'https://cdn.jsdelivr.net/gh/gxggsrmyy/gxggsrmyy.github.io@master/m3u8-downloader/cnlib/stream-saver.js'
+          $streamSaver.src = 'https://cdn.jsdelivr.net/gh/nbzdwss78/nbzdwss78.github.io@master/m3u8-downloader/cnlib/stream-saver.js'
 
           // 监听 vue 加载完成，执行业务代码
           $vue.addEventListener('load', function() {eval(script)})
