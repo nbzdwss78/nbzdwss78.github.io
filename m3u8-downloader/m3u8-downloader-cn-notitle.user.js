@@ -154,14 +154,14 @@
     })
 
     m3u8Jump.addEventListener('click', function() {
-      windowOpen('https://nbzdwss78.github.io/m3u8-downloader/index.html?source=' + m3u8Target)
+      windowOpen('https://nbzdwss78.github.io/m3u8-downloader/index-6cn.html?source=' + m3u8Target)
     })
 
     m3u8Append.addEventListener('click', function() {
       
       ajax({
-        //url: 'https://nbzdwss78.github.io/m3u8-downloader/index-cn.html',
-        url: 'https://nbzdwss78.github.io/m3u8-downloader/index-6cn.html',
+        url: 'https://nbzdwss78.github.io/m3u8-downloader/index-cn.html',
+        //url: 'https://nbzdwss78.github.io/m3u8-downloader/index-6cn.html',
         success: (fileStr) => {
           let fileList = fileStr.split(`<!--vue 前端框架--\>`);
           let dom = fileList[0];
