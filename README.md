@@ -1,12 +1,12 @@
- ### [jsproxy](https://gxggsrmyy.github.io/jsproxy/)，推荐使用 chrome 浏览器。
+ ### [jsproxy](https://nbzdwss78.github.io/jsproxy/)，推荐使用 chrome 浏览器。
 
-### [hnetweb](https://gxggsrmyy.github.io/hnetweb/)，推荐使用 chrome 浏览器。
+### [hnetweb](https://nbzdwss78.github.io/hnetweb/)，推荐使用 chrome 浏览器。
 
- ### [m3u8-downloader](https://gxggsrmyy.github.io/m3u8-downloader/)，[油猴插件](https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader.user.js)，[油猴插件cn](https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader-cn.user.js),[油猴插件m3u8-downloader-cn-notitle](https://gxggsrmyy.github.io/m3u8-downloader/m3u8-downloader-cn-notitle.user.js)
+ ### [m3u8-downloader](https://nbzdwss78.github.io/m3u8-downloader/)，[油猴插件](https://nbzdwss78.github.io/m3u8-downloader/m3u8-downloader.user.js)，[油猴插件cn](https://nbzdwss78.github.io/m3u8-downloader/m3u8-downloader-cn.user.js),[油猴插件m3u8-downloader-cn-notitle](https://nbzdwss78.github.io/m3u8-downloader/m3u8-downloader-cn-notitle.user.js)
 
- ### [cxwithyxy-m3u8-downloader](https://gxggsrmyy.github.io/cxwithyxy-m3u8-downloader/)，推荐使用 chrome 浏览器。
+ ### [cxwithyxy-m3u8-downloader](https://nbzdwss78.github.io/cxwithyxy-m3u8-downloader/)，推荐使用 chrome 浏览器。
 
-  ### [media-source-extract](https://gxggsrmyy.github.io/media-source-extract)，[油猴插件media-source-extract.user.js](https://gxggsrmyy.github.io/media-source-extract/media-source-extract.user.js), [油猴插件media-source-extract-stream.user.js](https://gxggsrmyy.github.io/media-source-extract/media-source-extract-stream.user.js),[样例](https://gxggsrmyy.github.io/media-source-extract/example/),[播放器](https://gxggsrmyy.github.io/media-source-extract/player/player-offline.html)
+  ### [media-source-extract](https://nbzdwss78.github.io/media-source-extract)，[油猴插件media-source-extract.user.js](https://nbzdwss78.github.io/media-source-extract/media-source-extract.user.js), [油猴插件media-source-extract-stream.user.js](https://nbzdwss78.github.io/media-source-extract/media-source-extract-stream.user.js),[样例](https://nbzdwss78.github.io/media-source-extract/example/),[播放器](https://nbzdwss78.github.io/media-source-extract/player/player-offline.html)
 
   
  ### 
