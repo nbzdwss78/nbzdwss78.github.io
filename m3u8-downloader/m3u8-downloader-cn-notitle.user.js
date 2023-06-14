@@ -188,29 +188,64 @@
           $section.style.backgroundColor = 'white'
           document.body.appendChild($section);
 
+          ajax({ // 加载 ASE 解密
+            url: 'https://upyun.luckly-mjw.cn/lib/stream-saver.js',
+            success: (streamSaverStr) => {
+              let $streamSaver = document.createElement('script')
+              $streamSaver.innerHTML = streamSaverStr
+              document.body.appendChild($streamSaver);
+              ajax({ // 加载 mp4 转码
+                url: 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/mux-mp4.js',
+                success: (mp4Str) => {
+                  let $mp4 = document.createElement('script')
+                  $mp4.innerHTML = mp4Str
+                  document.body.appendChild($mp4);
+                  ajax({ // 加载 stream 流式下载器
+                    url: 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/aes-decryptor.js',
+                    success: (aseStr) => {
+                      let $ase = document.createElement('script')
+                      $ase.innerHTML = aseStr
+                      document.body.appendChild($ase);
+                      ajax({ // 加载 vue
+                        url: 'https://upyun.luckly-mjw.cn/lib/vue.js',
+                        success: (vueStr) => {
+                          let $vue = document.createElement('script')
+                          $vue.innerHTML = vueStr
+                          document.body.appendChild($vue);
+                          alert('注入成功，请滚动到页面底部')
+                          eval(script)
+                        }
+                      })
+                    }
+                  })
+                }
+              })
+            }
+          })
+          
           // 加载 ASE 解密
-          let $ase = document.createElement('script')
-          $ase.src = 'https://cdn.jsdelivr.net/gh/nbzdwss78/nbzdwss78.github.io@master/m3u8-downloader/cnlib/aes-decryptor.js'
+          //let $ase = document.createElement('script')
+          //$ase.src = 'https://cdn.jsdelivr.net/gh/nbzdwss78/nbzdwss78.github.io@master/m3u8-downloader/cnlib/aes-decryptor.js'
 
           // 加载 mp4 转码
-          let $mp4 = document.createElement('script')
-          $mp4.src = 'https://cdn.jsdelivr.net/gh/nbzdwss78/nbzdwss78.github.io@master/m3u8-downloader/cnlib/mux-mp4.js'
+          //let $mp4 = document.createElement('script')
+          //$mp4.src = 'https://cdn.jsdelivr.net/gh/nbzdwss78/nbzdwss78.github.io@master/m3u8-downloader/cnlib/mux-mp4.js'
 
           // 加载 vue
-          let $vue = document.createElement('script')
-          $vue.src = 'https://cdn.jsdelivr.net/gh/nbzdwss78/nbzdwss78.github.io@master/m3u8-downloader/cnlib/vue.js'
+          //let $vue = document.createElement('script')
+          //$vue.src = 'https://cdn.jsdelivr.net/gh/nbzdwss78/nbzdwss78.github.io@master/m3u8-downloader/cnlib/vue.js'
 
           // 加载 stream 流式下载器
-          let $streamSaver = document.createElement('script')
-          $streamSaver.src = 'https://cdn.jsdelivr.net/gh/nbzdwss78/nbzdwss78.github.io@master/m3u8-downloader/cnlib/stream-saver.js'
+          //let $streamSaver = document.createElement('script')
+          //$streamSaver.src = 'https://cdn.jsdelivr.net/gh/nbzdwss78/nbzdwss78.github.io@master/m3u8-downloader/cnlib/stream-saver.js'
 
           // 监听 vue 加载完成，执行业务代码
-          $vue.addEventListener('load', function() {eval(script)})
-          document.body.appendChild($streamSaver);
-          document.body.appendChild($mp4);
-          document.body.appendChild($ase);
-          document.body.appendChild($vue);
-          alert('注入成功，请滚动到页面底部')
+          //$vue.addEventListener('load', function() {eval(script)})
+          //document.body.appendChild($streamSaver);
+          //document.body.appendChild($mp4);
+          //document.body.appendChild($ase);
+          //document.body.appendChild($vue);
+          //alert('注入成功，请滚动到页面底部')
         },
       })
     })
