@@ -30,7 +30,7 @@
     WritableStream: global.WritableStream || ponyfill.WritableStream,
     supported: true,
     version: { full: '2.0.5', major: 2, minor: 0, dot: 5 },
-    mitm: 'https://gxggsrmyy.github.io/m3u8-downloader/cnlib/stream-saver-mitm.html'
+    mitm: 'https://nbzdwss78.github.io/m3u8-downloader/cnlib/stream-saver-mitm.html'
   }
 
   /**
