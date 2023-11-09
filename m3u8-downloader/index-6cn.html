@@ -607,8 +607,8 @@ new Vue({
 
           // 提取 ts 视频片段地址
           m3u8Str.split('\n').forEach((item) => {
-            if (/.(png|image|ts|jpg|mp4|jpeg|m4s)/.test(item)) {
-            //if (/^[^#]/.test(item)) {
+            //if (/.(png|image|ts|jpg|mp4|jpeg|m4s)/.test(item)) {
+            if (/^[^#]/.test(item)) {
               console.log(item)
               this.tsUrlList.push(this.applyURL(item, this.url))
               this.finishList.push({
