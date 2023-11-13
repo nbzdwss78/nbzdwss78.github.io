@@ -55,6 +55,7 @@
           m3u8Target = urlObj.href
           console.log('【m3u8】----------------------------------------')
           console.log(urlObj)
+          console.log(urlObj.href)
           console.log('https://nbzdwss78.github.io/m3u8-downloader/index-cn.html?source=' + m3u8Target)
         }
       }
