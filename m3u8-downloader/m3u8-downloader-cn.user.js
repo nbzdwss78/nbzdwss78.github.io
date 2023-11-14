@@ -54,7 +54,7 @@
           m3u8Target = urlObj.href
           console.log('【m3u8】----------------------------------------')
           console.log(urlObj)
-          console.log('https://nbzdwss78.github.io/m3u8-downloader/index-cn.html?source=' + m3u8Target)
+          console.log('https://nbzdwss78.github.io/m3u8-downloader/index-6cn.html?source=' + m3u8Target)
         }
       }
     })
@@ -153,7 +153,7 @@
     })
 
     m3u8Jump.addEventListener('click', function() {
-      windowOpen('https://nbzdwss78.github.io/m3u8-downloader/index.html?source=' + m3u8Target)
+      windowOpen('https://nbzdwss78.github.io/m3u8-downloader/index-6cn?source=' + m3u8Target)
     })
 
     m3u8Append.addEventListener('click', function() {
