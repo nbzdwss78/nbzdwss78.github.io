@@ -487,9 +487,13 @@ new Vue({
       let { href } = location
       if (href.indexOf('?source=') > -1) {
         this.url = href.split('?source=')[1]
+        const url1  = href.split('?source=')[1]
+        if (url1.indexOf('?title=') > -1) {
+          this.url = url1.split('?title=')[0]
+          }
       }
     },
-    
+
 
     // 获取顶部 window title，因可能存在跨域问题，故使用 try catch 进行保护
     getDocumentTitle(){
