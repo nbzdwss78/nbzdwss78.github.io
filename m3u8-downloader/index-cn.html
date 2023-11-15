@@ -483,7 +483,7 @@ new Vue({
 
   methods: {
     // 获取链接中携带的资源链接
-    getSource2() {
+    getSource() {
       let { href } = location
       if (href.indexOf('?source=') > -1) {
         this.url = href.split('?source=')[1]
@@ -494,7 +494,7 @@ new Vue({
       }
     },
     
-    getSource() {
+    getSource2() {
       let { href } = location
       
       const currentUrl = new URL(location.href)
