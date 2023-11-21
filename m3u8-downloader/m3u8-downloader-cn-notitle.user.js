@@ -53,10 +53,13 @@
           //2021
           //urlObj.searchParams.append('title', getTitle())
           m3u8Target = urlObj.href
+          //2021
+          if (!/(doppiocdn)/.test(urlObj.href)) {
           console.log('【m3u8】----------------------------------------')
           console.log(urlObj)
           console.log(urlObj.href)
-          console.log('https://nbzdwss78.github.io/m3u8-downloader/index-cn.html?source=' + m3u8Target)
+          console.log('https://nbzdwss78.github.io/m3u8-downloader/index-6cn.html?source=' + m3u8Target)
+          }
         }
       }
     })
