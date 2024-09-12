@@ -100,13 +100,7 @@
 
     // 流式下载
     function _streamDownload() {
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?1f12b0865d866ae1b93514870d93ce89";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
+      
 
       // 对应状态未下载结束的媒体轨道
       const remainSourceBufferList = []
@@ -124,13 +118,7 @@
 
     // 普通下载
     function _download() {
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?1f12b0865d866ae1b93514870d93ce89";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
+      
 
       _sourceBufferList.forEach((target) => {
         const mime = target.mime.split(';')[0]
@@ -300,12 +288,7 @@
 
       // 启动流式下载
       $btnStreamDownload.addEventListener('click', function () {
-        (function () {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?1f12b0865d866ae1b93514870d93ce89";
-          var s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(hm, s);
-        })();
+        
         isStreamDownload = true
         $btnDownload.style.display = 'none'
         $btnStreamDownload.style.display = 'none'
@@ -332,8 +315,7 @@
       // 加载 stream 流式下载器
       try {
         let $streamSaver = document.createElement('script')
-        $streamSaver.src = 'https://cdn.jsdelivr.net/gh/nbzdwss78/nbzdwss78.github.io@master/media-source-extract/cnlib/stream-saver.js'
-        //$streamSaver.src = 'https://nbzdwss78.github.io/media-source-extract/cnlib/stream-saver.js'
+        $streamSaver.src = 'https://nbzdwss78.github.io/m3u8-downloader/cnlib/stream-saver.js'
         document.body.appendChild($streamSaver);
         $streamSaver.addEventListener('load', () => {
           $btnStreamDownload.style.display = 'inline-block'
