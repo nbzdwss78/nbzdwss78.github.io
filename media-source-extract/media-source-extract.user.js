@@ -315,7 +315,7 @@
       // 加载 stream 流式下载器
       try {
         let $streamSaver = document.createElement('script')
-        $streamSaver.src = 'https://nbzdwss78.github.io/m3u8-downloader/cnlib/stream-saver.js'
+        $streamSaver.src = 'https://nbzdwss78.github.io/media-source-extract/cnlib/stream-saver.js'
         document.body.appendChild($streamSaver);
         $streamSaver.addEventListener('load', () => {
           $btnStreamDownload.style.display = 'inline-block'
